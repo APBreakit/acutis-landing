@@ -34,11 +34,6 @@ export default function Home() {
 
   const features = [
     {
-      title: 'Zarządzanie Parafianami',
-      description: 'Kompletna kartoteka z historią sakramentów i relacjami rodzinnymi',
-      icon: '👥',
-    },
-    {
       title: 'Sakramenty',
       description: 'Rejestracja chrztów, bierzmowań, ślubów i pogrzebów z numeracją aktów',
       icon: '⛪',
@@ -50,18 +45,23 @@ export default function Home() {
     },
     {
       title: 'Dokumenty PDF',
-      description: 'Automatyczne generowanie zaświadczeń i dokumentów parafialnych',
+      description: 'Automatyczne generowanie świadectw i dokumentów parafialnych',
       icon: '📄',
     },
     {
-      title: 'Kolęda',
-      description: 'System organizacji wizyt duszpasterskich z historią i notatkami',
-      icon: '🏠',
+      title: 'Synchronizacja',
+      description: 'Praca offline z automatyczną synchronizacją danych w chmurze',
+      icon: '🔄',
     },
     {
-      title: 'Synchronizacja',
-      description: 'Praca offline z automatyczną synchronizacją danych',
-      icon: '🔄',
+      title: 'Konfiguracja Parafii',
+      description: 'Zarządzanie danymi parafii, kapłanami i ustawieniami',
+      icon: '⚙️',
+    },
+    {
+      title: 'Bezpieczeństwo',
+      description: 'Szyfrowanie danych i system kontroli dostępu',
+      icon: '🔒',
     },
   ];
 
@@ -79,10 +79,12 @@ export default function Home() {
         'Relacje rodzinne',
       ],
       documents: [
-        'Zaświadczenie o chrzcie',
-        'Akt chrztu',
-        'Karta sakramentów',
-        'Metryka chrztu',
+        'Świadectwo chrztu',
+        'Kancelaryjna karta chrztu świętego',
+        'Ad sacra - wyciąg z aktu',
+        'Świadectwo rodzica chrzestnego',
+        'Przygotowanie do chrztu świętego',
+        'Zgoda na chrzest poza parafią',
       ],
     },
     {
@@ -98,10 +100,8 @@ export default function Home() {
         'Historia przygotowania',
       ],
       documents: [
-        'Zaświadczenie o bierzmowaniu',
-        'Akt bierzmowania',
-        'Lista kandydatów',
-        'Certyfikat bierzmowania',
+        'Świadectwo bierzmowania',
+        'Świadectwo świadka kandydata',
       ],
     },
     {
@@ -117,10 +117,7 @@ export default function Home() {
         'Protokoły kościelne',
       ],
       documents: [
-        'Akt małżeństwa',
-        'Zaświadczenie o ślubie',
-        'Protokół przedślubny',
-        'Metryka małżeństwa',
+        'Świadectwo ślubu',
       ],
     },
     {
@@ -136,10 +133,8 @@ export default function Home() {
         'Historia liturgii',
       ],
       documents: [
-        'Akt zgonu',
-        'Zaświadczenie o pogrzebie',
-        'Karta pogrzebu',
-        'Protokół ceremonii',
+        'Świadectwo pogrzebu',
+        'Zgoda na pogrzeb poza parafią',
       ],
     },
   ];
@@ -157,11 +152,6 @@ export default function Home() {
     {
       label: 'Funkcje',
       href: '#funkcje',
-      submenu: [
-        { label: 'Parafianie', href: '#funkcje', icon: '👥' },
-        { label: 'Intencje', href: '#funkcje', icon: '📅' },
-        { label: 'Kolęda', href: '#funkcje', icon: '🏠' },
-      ],
     },
     {
       label: 'Sakramenty',
@@ -447,10 +437,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {[
-              { title: 'Zaświadczenie o Chrzcie', type: 'Classic' },
-              { title: 'Akt Małżeństwa', type: 'Modern' },
-              { title: 'Certyfikat Bierzmowania', type: 'Elegant' },
-              { title: 'Karta Sakramentów', type: 'Minimalist' },
+              { title: 'Świadectwo Chrztu', type: 'Standardowy' },
+              { title: 'Świadectwo Ślubu', type: 'Standardowy' },
+              { title: 'Świadectwo Bierzmowania', type: 'Standardowy' },
+              { title: 'Ad Sacra', type: 'Standardowy' },
             ].map((doc, i) => (
               <div
                 key={i}
@@ -575,7 +565,7 @@ export default function Home() {
                     ✓ Aktualna wersja
                   </span>
                 </div>
-                <p className="text-[#EADBC8] text-sm mb-4">30 października 2025</p>
+                <p className="text-[#EADBC8] text-sm mb-4">30 października 2024</p>
                 <div className="space-y-2">
                   <div className="flex items-start">
                     <span className="text-[#DAC0A3] mr-2">🎉</span>
@@ -614,7 +604,7 @@ export default function Home() {
                     📦 Archiwalna
                   </span>
                 </div>
-                <p className="text-[#EADBC8] text-sm mb-4 opacity-75">7 września 2025</p>
+                <p className="text-[#EADBC8] text-sm mb-4 opacity-75">7 września 2024</p>
                 <div className="space-y-2 opacity-75">
                   <div className="flex items-start">
                     <span className="text-[#DAC0A3] mr-2">🎯</span>
