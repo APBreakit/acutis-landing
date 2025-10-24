@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/app/:path*",
+      "destination": "https://dash.acutisapp.com/:path*"
+    }
+  ]
+}
