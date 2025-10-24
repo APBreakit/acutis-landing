@@ -176,6 +176,10 @@ export default function Home() {
       href: '#changelog',
     },
     {
+      label: 'FAQ',
+      href: '#faq',
+    },
+    {
       label: 'Cennik',
       href: '#cennik',
     },
@@ -325,7 +329,7 @@ export default function Home() {
       {/* Quick Navigation */}
       <section className="relative z-10 container mx-auto px-6 py-8">
         <div className="flex flex-wrap justify-center gap-3">
-          {['Funkcje', 'Sakramenty', 'Wydruki', 'Platformy', 'Changelog', 'Cennik'].map((item, i) => (
+          {['Funkcje', 'Sakramenty', 'Wydruki', 'Platformy', 'Changelog', 'FAQ', 'Cennik'].map((item, i) => (
             <a
               key={i}
               href={`#${item.toLowerCase()}`}
@@ -784,6 +788,76 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="relative z-10 container mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Najczęściej Zadawane Pytania</h2>
+          <p className="text-xl text-[#EADBC8]">Odpowiedzi na najważniejsze pytania</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto space-y-4">
+          {[
+            {
+              q: 'Czy Acutis działa bez połączenia z internetem?',
+              a: 'Tak! Acutis to aplikacja offline-first. Wszystkie dane są przechowywane lokalnie na Twoim urządzeniu. Połączenie internetowe jest potrzebne tylko do synchronizacji danych między urządzeniami.',
+            },
+            {
+              q: 'Czy moje dane są bezpieczne?',
+              a: 'Absolutnie. Wszystkie dane są szyfrowane zarówno lokalnie, jak i podczas transmisji. Wykorzystujemy najnowsze standardy bezpieczeństwa. Dane są przechowywane w certyfikowanej infrastrukturze Supabase z regularnym backup.',
+            },
+            {
+              q: 'Ile urządzeń mogę używać?',
+              a: 'Plan PRO pozwala na pracę na 3 urządzeniach jednocześnie. Możesz zainstalować aplikację na komputerze w kancelarii, laptopie i dodatkowym stanowisku. Wszystkie dane synchronizują się automatycznie.',
+            },
+            {
+              q: 'Czy mogę przenieść dane z mojego obecnego systemu?',
+              a: 'Tak. Acutis obsługuje import danych z plików CSV. Pomożemy Ci w migracji danych z Twojego obecnego systemu. W razie potrzeby oferujemy wsparcie techniczne przy większych migracjach.',
+            },
+            {
+              q: 'Czy otrzymam szkolenie z obsługi?',
+              a: 'Tak. Każdy abonament PRO zawiera szkolenie online z obsługi aplikacji. Dodatkowo dostępna jest dokumentacja wideo i wsparcie techniczne przez email.',
+            },
+            {
+              q: 'Co się stanie po zakończeniu okresu trial?',
+              a: 'Po 14 dniach trial aplikacja przestanie działać, ale Twoje dane pozostaną bezpieczne. Po wykupieniu abonamentu natychmiast odzyskasz dostęp do wszystkich funkcji i danych.',
+            },
+            {
+              q: 'Czy mogę anulować subskrypcję w każdej chwili?',
+              a: 'Tak. Możesz anulować subskrypcję w dowolnym momencie bez dodatkowych opłat. Aplikacja będzie działać do końca opłaconego okresu.',
+            },
+            {
+              q: 'Czy aplikacja będzie dostępna na telefony?',
+              a: 'Tak! Pracujemy nad aplikacjami mobilnymi dla iOS i Android. Planowane wydanie: Q2 2025. Będą one synchronizować się z wersją desktopową.',
+            },
+          ].map((faq, i) => (
+            <details
+              key={i}
+              className="group backdrop-blur-xl rounded-2xl overflow-hidden transition-all duration-300"
+              style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}
+            >
+              <summary className="cursor-pointer p-6 flex justify-between items-center hover:bg-white/5 transition-colors">
+                <h3 className="text-lg font-bold text-[#FEFAF6] pr-4">{faq.q}</h3>
+                <span className="text-[#DAC0A3] text-2xl group-open:rotate-180 transition-transform duration-300">▼</span>
+              </summary>
+              <div className="px-6 pb-6 pt-2">
+                <p className="text-[#EADBC8] leading-relaxed">{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-[#EADBC8] mb-4">Nie znalazłeś odpowiedzi na swoje pytanie?</p>
+          <Link
+            href="mailto:support@acutisapp.com"
+            className="inline-block px-8 py-3 rounded-xl text-[#FEFAF6] font-semibold transition-all duration-300 hover:scale-105"
+            style={{ background: 'rgba(254, 250, 246, 0.1)', border: '1px solid rgba(218, 192, 163, 0.4)' }}
+          >
+            📧 Skontaktuj się z nami
+          </Link>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section id="cennik" className="relative z-10 container mx-auto px-6 py-20">
         <div className="text-center mb-16">
@@ -989,13 +1063,78 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 container mx-auto px-6 py-12" style={{ borderTop: '1px solid rgba(218, 192, 163, 0.2)' }}>
-        <div className="text-center text-[#EADBC8]">
-          <p className="mb-4">© 2025 Acutis. Wszystkie prawa zastrzeżone.</p>
-          <div className="flex justify-center gap-6">
-            <a href="#" className="hover:text-[#DAC0A3] transition-colors">Regulamin</a>
-            <a href="#" className="hover:text-[#DAC0A3] transition-colors">Polityka Prywatności</a>
-            <a href="mailto:support@acutisapp.com" className="hover:text-[#DAC0A3] transition-colors">Kontakt</a>
+      <footer className="relative z-10 container mx-auto px-6 py-16" style={{ borderTop: '1px solid rgba(218, 192, 163, 0.2)' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            {/* Logo i opis */}
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-4xl">⛪</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-[#FEFAF6] to-[#DAC0A3] bg-clip-text text-transparent">Acutis</span>
+              </div>
+              <p className="text-[#EADBC8] text-sm mb-4">
+                Nowoczesny system zarządzania parafią. Offline-first, bezpieczny i intuicyjny.
+              </p>
+              <div className="flex gap-3">
+                <a href="https://dash.acutisapp.com" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">
+                  <span className="text-2xl">🌐</span>
+                </a>
+                <a href="mailto:support@acutisapp.com" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">
+                  <span className="text-2xl">📧</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Szybkie linki */}
+            <div>
+              <h4 className="text-[#FEFAF6] font-bold mb-4">Nawigacja</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#funkcje" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">Funkcje</a></li>
+                <li><a href="#sakramenty" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">Sakramenty</a></li>
+                <li><a href="#platformy" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">Platformy</a></li>
+                <li><a href="#changelog" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">Changelog</a></li>
+                <li><a href="#faq" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">FAQ</a></li>
+                <li><a href="#cennik" className="text-[#EADBC8] hover:text-[#DAC0A3] transition-colors">Cennik</a></li>
+              </ul>
+            </div>
+
+            {/* Kontakt */}
+            <div>
+              <h4 className="text-[#FEFAF6] font-bold mb-4">Kontakt</h4>
+              <ul className="space-y-2 text-sm text-[#EADBC8]">
+                <li>
+                  <a href="mailto:support@acutisapp.com" className="hover:text-[#DAC0A3] transition-colors">
+                    📧 support@acutisapp.com
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:kontakt@acutisapp.com" className="hover:text-[#DAC0A3] transition-colors">
+                    📧 kontakt@acutisapp.com
+                  </a>
+                </li>
+                <li className="pt-2">
+                  <span className="text-xs opacity-75">Wsparcie techniczne 24/7</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Copyright i linki prawne */}
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#EADBC8]">
+            <p>© 2024-2025 Acutis. Wszystkie prawa zastrzeżone.</p>
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-[#DAC0A3] transition-colors">Regulamin</a>
+              <a href="#" className="hover:text-[#DAC0A3] transition-colors">Polityka Prywatności</a>
+              <a href="#" className="hover:text-[#DAC0A3] transition-colors">RODO</a>
+            </div>
+          </div>
+
+          {/* Status */}
+          <div className="mt-8 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)' }}>
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+              <span className="text-sm text-green-400 font-medium">Beta Testing - Aktywny</span>
+            </div>
           </div>
         </div>
       </footer>
