@@ -7,6 +7,7 @@ export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [parishCount, setParishCount] = useState(2500);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -152,6 +153,40 @@ export default function Home() {
     { name: 'Android', icon: '🤖', available: false, soon: true },
   ];
 
+  const menuItems = [
+    {
+      label: 'Funkcje',
+      href: '#funkcje',
+      submenu: [
+        { label: 'Parafianie', href: '#funkcje', icon: '👥' },
+        { label: 'Intencje', href: '#funkcje', icon: '📅' },
+        { label: 'Kolęda', href: '#funkcje', icon: '🏠' },
+      ],
+    },
+    {
+      label: 'Sakramenty',
+      href: '#sakramenty',
+      submenu: [
+        { label: 'Chrzty', href: '#chrzty', icon: '💧' },
+        { label: 'Bierzmowania', href: '#bierzmowania', icon: '🕊️' },
+        { label: 'Śluby', href: '#sluby', icon: '💍' },
+        { label: 'Pogrzeby', href: '#pogrzeby', icon: '🕯️' },
+      ],
+    },
+    {
+      label: 'Wydruki',
+      href: '#wydruki',
+    },
+    {
+      label: 'Platformy',
+      href: '#platformy',
+    },
+    {
+      label: 'Cennik',
+      href: '#cennik',
+    },
+  ];
+
   return (
     <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A1A33 0%, #102C57 50%, #0E2340 100%)' }}>
       {/* Animated liquid gradient */}
@@ -174,34 +209,76 @@ export default function Home() {
         </svg>
       </div>
 
-      {/* Navigation */}
-      <nav className="relative z-10 container mx-auto px-6 py-6">
-        <div className="flex justify-between items-center backdrop-blur-xl rounded-2xl px-6 py-4 shadow-2xl" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.3)' }}>
-          <div className="text-3xl font-bold flex items-center gap-3">
-            <span className="text-4xl">⛪</span>
-            <span className="bg-gradient-to-r from-[#FEFAF6] via-[#EADBC8] to-[#DAC0A3] bg-clip-text text-transparent">Acutis</span>
+      {/* Navigation - Minimalist & Narrow */}
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto">
+        <div className="flex items-center gap-1 backdrop-blur-xl rounded-full px-3 py-2 shadow-2xl" style={{ background: 'rgba(10, 26, 51, 0.6)', border: '1px solid rgba(218, 192, 163, 0.3)' }}>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-white/5">
+            <span className="text-2xl">⛪</span>
+            <span className="text-lg font-bold bg-gradient-to-r from-[#FEFAF6] to-[#DAC0A3] bg-clip-text text-transparent">Acutis</span>
+          </Link>
+
+          {/* Menu Items */}
+          <div className="flex items-center gap-1 mx-2">
+            {menuItems.map((item, i) => (
+              <div
+                key={i}
+                className="relative"
+                onMouseEnter={() => item.submenu && setOpenMenu(item.label)}
+                onMouseLeave={() => setOpenMenu(null)}
+              >
+                <a
+                  href={item.href}
+                  className="flex items-center gap-1 px-3 py-1.5 text-sm text-[#EADBC8] hover:text-[#DAC0A3] rounded-full transition-all duration-300 hover:bg-white/5"
+                  onClick={() => setOpenMenu(null)}
+                >
+                  {item.label}
+                  {item.submenu && (
+                    <span className="text-xs opacity-60">▾</span>
+                  )}
+                </a>
+
+                {/* Dropdown */}
+                {item.submenu && openMenu === item.label && (
+                  <div className="absolute top-full left-0 mt-2 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden min-w-[180px]" style={{ background: 'rgba(10, 26, 51, 0.9)', border: '1px solid rgba(218, 192, 163, 0.3)' }}>
+                    {item.submenu.map((subitem, j) => (
+                      <a
+                        key={j}
+                        href={subitem.href}
+                        className="flex items-center gap-2 px-4 py-2.5 text-sm text-[#EADBC8] hover:text-[#DAC0A3] hover:bg-white/5 transition-all duration-300"
+                        onClick={() => setOpenMenu(null)}
+                      >
+                        <span className="text-lg">{subitem.icon}</span>
+                        {subitem.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          <div className="flex gap-4">
+
+          {/* CTA Buttons */}
+          <div className="flex items-center gap-2 ml-2 pl-2 border-l border-white/10">
             <Link
               href="https://dash.acutisapp.com"
-              className="px-6 py-3 backdrop-blur-md rounded-xl transition-all duration-300 hover:scale-105 text-[#FEFAF6] border hover:shadow-lg"
-              style={{ background: 'rgba(254, 250, 246, 0.1)', borderColor: 'rgba(218, 192, 163, 0.4)' }}
+              className="px-4 py-1.5 text-sm text-[#EADBC8] hover:text-[#DAC0A3] rounded-full transition-all duration-300 hover:bg-white/5"
             >
-              Zaloguj się
+              Zaloguj
             </Link>
             <Link
               href="https://dash.acutisapp.com/register"
-              className="px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg text-[#0A1A33] font-semibold"
+              className="px-4 py-1.5 text-sm rounded-full transition-all duration-300 hover:scale-105 shadow-lg text-[#0A1A33] font-semibold"
               style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}
             >
-              Wypróbuj za darmo
+              Wypróbuj
             </Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
+      <section className="relative z-10 container mx-auto px-6 pt-32 pb-20">
         <div className="text-center max-w-5xl mx-auto">
           <div className="inline-block backdrop-blur-xl rounded-2xl px-6 py-3 mb-8 animate-fade-in shadow-lg" style={{ background: 'rgba(218, 192, 163, 0.15)', border: '1px solid rgba(234, 219, 200, 0.3)' }}>
             <p className="text-[#EADBC8] font-medium">🎉 Nowa wersja 2.0 już dostępna</p>
