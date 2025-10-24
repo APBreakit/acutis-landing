@@ -5,6 +5,8 @@ import Link from 'next/link';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [parishCount, setParishCount] = useState(2500);
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -13,6 +15,21 @@ export default function Home() {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  // Oblicz cenę na podstawie liczby parafian
+  const getPricing = (count: number) => {
+    if (count <= 2500) {
+      return { monthly: 97, yearly: 997, label: 'do 2 500' };
+    } else if (count <= 5500) {
+      return { monthly: 149, yearly: 1490, label: 'do 5 500' };
+    } else if (count <= 12000) {
+      return { monthly: 197, yearly: 1970, label: 'do 12 000' };
+    } else {
+      return { monthly: null, yearly: null, label: 'Więcej niż 12 000' };
+    }
+  };
+
+  const currentPricing = getPricing(parishCount);
 
   const features = [
     {
@@ -44,56 +61,6 @@ export default function Home() {
       title: 'Synchronizacja',
       description: 'Praca offline z automatyczną synchronizacją danych',
       icon: '🔄',
-    },
-  ];
-
-  const pricing = [
-    {
-      name: 'TRIAL',
-      price: '0',
-      period: '14 dni',
-      description: 'Bezpłatny okres próbny',
-      features: [
-        'Wszystkie funkcje',
-        'Do 100 parafian',
-        '14 dni dostępu',
-        'Email support',
-      ],
-      popular: false,
-      originalPrice: null,
-    },
-    {
-      name: 'PRO',
-      price: '99',
-      period: 'miesięcznie',
-      description: 'Dla parafii',
-      features: [
-        'Do 2000 parafian',
-        'Wszystkie funkcje',
-        'Backup co godzinę',
-        'Priority support 24/7',
-        '3 urządzenia',
-        'Szkolenie online',
-      ],
-      popular: true,
-      originalPrice: '199',
-    },
-    {
-      name: 'DIECEZJE',
-      price: 'Custom',
-      period: 'kontakt',
-      description: 'Dla diecezji',
-      features: [
-        'Nielimitowane parafie',
-        'Centralne zarządzanie',
-        'Wszystkie funkcje',
-        'Dedykowany support',
-        'Nieograniczone urządzenia',
-        'Szkolenie stacjonarne',
-        'Custom integracje',
-      ],
-      popular: false,
-      originalPrice: null,
     },
   ];
 
@@ -227,73 +194,181 @@ export default function Home() {
           <p className="text-xl text-[#EADBC8]">Wybierz plan dopasowany do Twojej parafii</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {pricing.map((plan, i) => (
-            <div
-              key={i}
-              className="relative backdrop-blur-xl rounded-2xl p-8 transition-all duration-300 hover:scale-105 shadow-lg"
-              style={{
-                background: plan.popular 
-                  ? 'linear-gradient(135deg, rgba(218, 192, 163, 0.25) 0%, rgba(234, 219, 200, 0.15) 100%)'
-                  : 'rgba(254, 250, 246, 0.08)',
-                border: plan.popular 
-                  ? '2px solid rgba(218, 192, 163, 0.5)'
-                  : '1px solid rgba(218, 192, 163, 0.25)'
-              }}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 text-[#0A1A33] px-4 py-1 rounded-full text-sm font-bold shadow-lg" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
-                  🔥 Najpopularniejszy
-                </div>
-              )}
+        <div className="grid lg:grid-cols-7 gap-6 max-w-7xl mx-auto">
+          {/* TRIAL - 2 kolumny */}
+          <div className="lg:col-span-2 backdrop-blur-xl rounded-2xl p-6 shadow-lg transition-all duration-300 hover:scale-105" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}>
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold text-[#FEFAF6] mb-2">TRIAL</h3>
+              <p className="text-[#EADBC8] text-xs mb-4">Bezpłatny okres próbny</p>
+              <div className="text-4xl font-bold text-[#DAC0A3] mb-2">0 zł</div>
+              <div className="text-[#EADBC8] text-sm">14 dni</div>
+            </div>
+            <ul className="space-y-2 mb-6 text-sm">
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Wszystkie funkcje
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Do 100 parafian
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Email support
+              </li>
+            </ul>
+            <Link href="https://dash.acutisapp.com/register" className="block w-full py-2 rounded-xl text-center font-bold transition-all duration-300 hover:scale-105 text-[#FEFAF6] text-sm" style={{ background: 'rgba(254, 250, 246, 0.1)', border: '1px solid rgba(218, 192, 163, 0.4)' }}>
+              Rozpocznij Trial
+            </Link>
+          </div>
+
+          {/* PRO - 3 kolumny (główna karta) */}
+          <div className="lg:col-span-3 relative backdrop-blur-xl rounded-2xl p-8 shadow-2xl transition-all duration-300 hover:scale-105" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.25) 0%, rgba(234, 219, 200, 0.15) 100%)', border: '2px solid rgba(218, 192, 163, 0.5)' }}>
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 text-[#0A1A33] px-4 py-1 rounded-full text-sm font-bold shadow-lg" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+              🔥 Najpopularniejszy
+            </div>
+            
+            <div className="text-center mb-6">
+              <h3 className="text-3xl font-bold text-[#FEFAF6] mb-2">PRO</h3>
+              <p className="text-[#EADBC8] text-sm mb-6">Dla parafii</p>
               
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-[#FEFAF6] mb-2">{plan.name}</h3>
-                <p className="text-[#EADBC8] text-sm mb-4">{plan.description}</p>
-                
-                {plan.originalPrice && (
-                  <div className="text-2xl text-[#EADBC8] line-through opacity-60 mb-1">
-                    {plan.originalPrice} zł
-                  </div>
-                )}
-                
-                <div className="text-5xl font-bold text-[#DAC0A3] mb-2">
-                  {plan.price === 'Custom' ? plan.price : `${plan.price} zł`}
-                </div>
-                
-                {plan.originalPrice && (
-                  <div className="inline-block px-3 py-1 rounded-full text-xs font-bold text-[#0A1A33] mb-2" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
-                    💰 Oszczędzasz {parseInt(plan.originalPrice) - parseInt(plan.price)} zł
-                  </div>
-                )}
-                
-                <div className="text-[#EADBC8]">{plan.period}</div>
+              {/* Toggle miesięcznie/rocznie */}
+              <div className="flex justify-center gap-2 mb-6">
+                <button
+                  onClick={() => setBillingCycle('monthly')}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${billingCycle === 'monthly' ? 'text-[#0A1A33]' : 'text-[#EADBC8]'}`}
+                  style={{ background: billingCycle === 'monthly' ? 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' : 'rgba(254, 250, 246, 0.1)' }}
+                >
+                  Miesięcznie
+                </button>
+                <button
+                  onClick={() => setBillingCycle('yearly')}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 relative ${billingCycle === 'yearly' ? 'text-[#0A1A33]' : 'text-[#EADBC8]'}`}
+                  style={{ background: billingCycle === 'yearly' ? 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' : 'rgba(254, 250, 246, 0.1)' }}
+                >
+                  Rocznie
+                  <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">-17%</span>
+                </button>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, j) => (
-                  <li key={j} className="flex items-center text-[#EADBC8]">
-                    <span className="mr-2 text-[#DAC0A3]">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              {/* Slider */}
+              <div className="mb-6">
+                <label className="block text-[#EADBC8] text-sm mb-2">
+                  Liczba parafian: <span className="text-[#DAC0A3] font-bold">{parishCount.toLocaleString('pl-PL')}</span>
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="13000"
+                  step="100"
+                  value={parishCount}
+                  onChange={(e) => setParishCount(parseInt(e.target.value))}
+                  className="w-full h-2 rounded-lg appearance-none cursor-pointer"
+                  style={{
+                    background: `linear-gradient(to right, #DAC0A3 0%, #DAC0A3 ${(parishCount / 13000) * 100}%, rgba(254, 250, 246, 0.2) ${(parishCount / 13000) * 100}%, rgba(254, 250, 246, 0.2) 100%)`
+                  }}
+                />
+                <div className="flex justify-between text-xs text-[#EADBC8] mt-1">
+                  <span>0</span>
+                  <span>13 000+</span>
+                </div>
+              </div>
 
-              <Link
-                href="https://dash.acutisapp.com/register"
-                className="block w-full py-3 rounded-xl text-center font-bold transition-all duration-300 hover:scale-105"
-                style={{
-                  background: plan.popular
-                    ? 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)'
-                    : 'rgba(254, 250, 246, 0.1)',
-                  color: plan.popular ? '#0A1A33' : '#FEFAF6',
-                  border: plan.popular ? 'none' : '1px solid rgba(218, 192, 163, 0.4)'
-                }}
-              >
-                {plan.price === '0' ? 'Rozpocznij Trial' : plan.price === 'Custom' ? 'Skontaktuj się' : 'Wybierz Plan'}
-              </Link>
+              {/* Cena */}
+              {currentPricing.monthly !== null ? (
+                <>
+                  <div className="text-6xl font-bold text-[#DAC0A3] mb-2">
+                    {billingCycle === 'monthly' ? currentPricing.monthly : currentPricing.yearly} zł
+                  </div>
+                  <div className="text-[#EADBC8] mb-2">
+                    {billingCycle === 'monthly' ? 'miesięcznie' : 'rocznie'}
+                  </div>
+                  {billingCycle === 'yearly' && (
+                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold text-[#0A1A33] mb-4" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+                      🎁 2 miesiące gratis
+                    </div>
+                  )}
+                  <div className="text-sm text-[#EADBC8] opacity-75">{currentPricing.label} parafian</div>
+                </>
+              ) : (
+                <>
+                  <div className="text-5xl font-bold text-[#DAC0A3] mb-2">Custom</div>
+                  <div className="text-[#EADBC8] mb-4">Skontaktuj się z nami</div>
+                  <div className="text-sm text-[#EADBC8]">Powyżej 12 000 parafian</div>
+                </>
+              )}
             </div>
-          ))}
+
+            <ul className="space-y-2 mb-6 text-sm">
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                {currentPricing.label} parafian
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Wszystkie funkcje
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Backup co godzinę
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Priority support 24/7
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                3 urządzenia
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Szkolenie online
+              </li>
+            </ul>
+
+            <Link
+              href={currentPricing.monthly !== null ? "https://dash.acutisapp.com/register" : "mailto:kontakt@acutisapp.com"}
+              className="block w-full py-3 rounded-xl text-center font-bold transition-all duration-300 hover:scale-105 text-[#0A1A33]"
+              style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}
+            >
+              {currentPricing.monthly !== null ? 'Wybierz Plan' : 'Skontaktuj się'}
+            </Link>
+          </div>
+
+          {/* DIECEZJE - 2 kolumny */}
+          <div className="lg:col-span-2 backdrop-blur-xl rounded-2xl p-6 shadow-lg transition-all duration-300 hover:scale-105" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}>
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold text-[#FEFAF6] mb-2">DIECEZJE</h3>
+              <p className="text-[#EADBC8] text-xs mb-4">Dla diecezji</p>
+              <div className="text-4xl font-bold text-[#DAC0A3] mb-2">Custom</div>
+              <div className="text-[#EADBC8] text-sm">kontakt</div>
+            </div>
+            <ul className="space-y-2 mb-6 text-sm">
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Nielimitowane parafie
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Centralne zarządzanie
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Dedykowany support
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Szkolenie stacjonarne
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Custom integracje
+              </li>
+            </ul>
+            <Link href="mailto:kontakt@acutisapp.com" className="block w-full py-2 rounded-xl text-center font-bold transition-all duration-300 hover:scale-105 text-[#FEFAF6] text-sm" style={{ background: 'rgba(254, 250, 246, 0.1)', border: '1px solid rgba(218, 192, 163, 0.4)' }}>
+              Skontaktuj się
+            </Link>
+          </div>
         </div>
       </section>
 
