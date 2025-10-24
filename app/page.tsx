@@ -182,6 +182,10 @@ export default function Home() {
       href: '#platformy',
     },
     {
+      label: 'Changelog',
+      href: '#changelog',
+    },
+    {
       label: 'Cennik',
       href: '#cennik',
     },
@@ -331,7 +335,7 @@ export default function Home() {
       {/* Quick Navigation */}
       <section className="relative z-10 container mx-auto px-6 py-8">
         <div className="flex flex-wrap justify-center gap-3">
-          {['Funkcje', 'Sakramenty', 'Wydruki', 'Platformy', 'Cennik'].map((item, i) => (
+          {['Funkcje', 'Sakramenty', 'Wydruki', 'Platformy', 'Changelog', 'Cennik'].map((item, i) => (
             <a
               key={i}
               href={`#${item.toLowerCase()}`}
@@ -541,6 +545,250 @@ export default function Home() {
             <div className="px-4 py-2 rounded-lg" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
               <span className="text-2xl mr-2">🤖</span>
               <span className="text-[#DAC0A3] font-semibold">Android - Q2 2025</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Changelog Section */}
+      <section id="changelog" className="relative z-10 container mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Historia Wersji</h2>
+          <p className="text-xl text-[#EADBC8]">Śledź rozwój aplikacji Acutis</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#DAC0A3] via-[#EADBC8] to-transparent opacity-30"></div>
+
+            {/* Beta - 30 października 2024 */}
+            <div className="relative mb-12 ml-20">
+              <div className="absolute -left-[52px] top-2 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+                <span className="text-xl">🚀</span>
+              </div>
+              
+              <div className="backdrop-blur-xl rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.2) 0%, rgba(234, 219, 200, 0.1) 100%)', border: '1px solid rgba(218, 192, 163, 0.4)' }}>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-2xl font-bold text-[#DAC0A3]">Beta Testing</h3>
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-500/20 text-green-400 border border-green-400/30">
+                    ✓ Aktualna wersja
+                  </span>
+                </div>
+                <p className="text-[#EADBC8] text-sm mb-4">30 października 2025</p>
+                <div className="space-y-2">
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🎉</span>
+                    <p className="text-[#EADBC8]">Otwarcie programu Beta Testing dla wybranych parafii</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">✨</span>
+                    <p className="text-[#EADBC8]">Pełna funkcjonalność sakramentów i intencji mszalnych</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">📄</span>
+                    <p className="text-[#EADBC8]">System generowania dokumentów PDF w stylu Classic</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🔄</span>
+                    <p className="text-[#EADBC8]">Synchronizacja danych między urządzeniami</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🎨</span>
+                    <p className="text-[#EADBC8]">Nowy interfejs użytkownika Material Design 3</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Alpha - 7 września 2024 */}
+            <div className="relative mb-12 ml-20">
+              <div className="absolute -left-[52px] top-2 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(218, 192, 163, 0.3)', border: '2px solid rgba(218, 192, 163, 0.5)' }}>
+                <span className="text-xl">🔧</span>
+              </div>
+              
+              <div className="backdrop-blur-xl rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-2xl font-bold text-[#EADBC8]">Alpha Release</h3>
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-400 border border-purple-400/30">
+                    📦 Archiwalna
+                  </span>
+                </div>
+                <p className="text-[#EADBC8] text-sm mb-4 opacity-75">7 września 2024</p>
+                <div className="space-y-2 opacity-75">
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🎯</span>
+                    <p className="text-[#EADBC8]">Pierwsze wdrożenie aplikacji w wersji testowej</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">⛪</span>
+                    <p className="text-[#EADBC8]">Podstawowa rejestracja sakramentów (chrzty, bierzmowania)</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">📋</span>
+                    <p className="text-[#EADBC8]">Prosty system intencji mszalnych</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">💾</span>
+                    <p className="text-[#EADBC8]">Lokalna baza danych (offline-first)</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🧪</span>
+                    <p className="text-[#EADBC8]">Testowanie architektury i podstawowych funkcji</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Roadmap Info */}
+            <div className="relative ml-20">
+              <div className="absolute -left-[52px] top-2 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(254, 250, 246, 0.1)', border: '2px solid rgba(218, 192, 163, 0.3)' }}>
+                <span className="text-xl">🗓️</span>
+              </div>
+              
+              <div className="backdrop-blur-xl rounded-2xl p-6" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.2)' }}>
+                <h3 className="text-xl font-bold text-[#EADBC8] mb-3">Co Dalej?</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">📱</span>
+                    <p className="text-[#EADBC8] opacity-75">Aplikacje mobilne iOS i Android (Q2 2025)</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🎨</span>
+                    <p className="text-[#EADBC8] opacity-75">Dodatkowe style dokumentów PDF (Modern, Minimalist)</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🤝</span>
+                    <p className="text-[#EADBC8] opacity-75">Integracje z zewnętrznymi systemami</p>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-[#DAC0A3] mr-2">🏠</span>
+                    <p className="text-[#EADBC8] opacity-75">Moduł Kolędy i wizyt duszpasterskich</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Changelog Section */}
+      <section id="changelog" className="relative z-10 container mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Historia Rozwoju</h2>
+          <p className="text-xl text-[#EADBC8]">Droga do doskonałości</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          {/* Timeline */}
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#DAC0A3] via-[#EADBC8] to-transparent"></div>
+
+            {/* Timeline Items */}
+            <div className="space-y-12">
+              {/* Alpha Release */}
+              <div className="relative pl-20">
+                <div className="absolute left-0 w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+                  <span className="text-2xl">🚀</span>
+                </div>
+                <div className="backdrop-blur-xl rounded-2xl p-6 transition-all duration-300 hover:scale-105" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-lg font-bold text-[#DAC0A3]">7 września 2024</span>
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold" style={{ background: 'rgba(147, 51, 234, 0.2)', color: '#a78bfa' }}>
+                      Alpha
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#FEFAF6] mb-2">Pierwsze Wdrożenie</h3>
+                  <p className="text-[#EADBC8] mb-4">
+                    Uruchomienie wersji alpha aplikacji Acutis. Rozpoczęcie testów z pierwszymi parafiami.
+                  </p>
+                  <ul className="space-y-2 text-sm text-[#EADBC8]">
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">✓</span>
+                      Podstawowe funkcje sakramentów
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">✓</span>
+                      System intencji mszalnych
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">✓</span>
+                      Generowanie dokumentów PDF
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Beta Release */}
+              <div className="relative pl-20">
+                <div className="absolute left-0 w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <div className="backdrop-blur-xl rounded-2xl p-6 transition-all duration-300 hover:scale-105" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-lg font-bold text-[#DAC0A3]">30 października 2024</span>
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold" style={{ background: 'rgba(34, 197, 94, 0.2)', color: '#22c55e' }}>
+                      Beta
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#FEFAF6] mb-2">Otwarcie Testów Beta</h3>
+                  <p className="text-[#EADBC8] mb-4">
+                    Publiczne testy beta dostępne dla wszystkich zainteresowanych parafii. Rozszerzenie funkcjonalności.
+                  </p>
+                  <ul className="space-y-2 text-sm text-[#EADBC8]">
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">✓</span>
+                      Rozszerzone wydruki dokumentów
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">✓</span>
+                      Synchronizacja danych w chmurze
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">✓</span>
+                      Wsparcie dla wielu platform
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">✓</span>
+                      Ulepszone bezpieczeństwo RLS
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Coming Soon */}
+              <div className="relative pl-20">
+                <div className="absolute left-0 w-16 h-16 rounded-full flex items-center justify-center opacity-60" style={{ background: 'rgba(254, 250, 246, 0.1)', border: '2px dashed rgba(218, 192, 163, 0.4)' }}>
+                  <span className="text-2xl">📱</span>
+                </div>
+                <div className="backdrop-blur-xl rounded-2xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.15)' }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-lg font-bold text-[#EADBC8]">Q2 2025</span>
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold" style={{ background: 'rgba(234, 219, 200, 0.2)', color: '#DAC0A3' }}>
+                      Planowane
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#FEFAF6] mb-2">Aplikacje Mobilne</h3>
+                  <p className="text-[#EADBC8] mb-4">
+                    Pełne wsparcie dla urządzeń mobilnych iOS i Android.
+                  </p>
+                  <ul className="space-y-2 text-sm text-[#EADBC8]">
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">○</span>
+                      Aplikacja iOS
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">○</span>
+                      Aplikacja Android
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#DAC0A3]">○</span>
+                      Offline-first architecture
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
