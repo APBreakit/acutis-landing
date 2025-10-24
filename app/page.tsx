@@ -467,38 +467,33 @@ export default function Home() {
           <div className="backdrop-blur-xl rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.2) 0%, rgba(234, 219, 200, 0.1) 100%)', border: '1px solid rgba(218, 192, 163, 0.4)' }}>
             <h3 className="text-2xl font-bold text-[#FEFAF6] mb-4">🎨 Style Dokumentów</h3>
             <div className="grid md:grid-cols-3 gap-6 text-[#EADBC8]">
-              {/* Obecny styl */}
-              <div className="backdrop-blur-md rounded-xl p-6" style={{ background: 'rgba(218, 192, 163, 0.25)', border: '2px solid rgba(218, 192, 163, 0.5)' }}>
+              <div className="backdrop-blur-md rounded-xl p-6" style={{ background: 'rgba(218, 192, 163, 0.15)', border: '1px solid rgba(234, 219, 200, 0.3)' }}>
                 <div className="text-4xl mb-3">✨</div>
-                <div className="font-bold text-lg text-[#DAC0A3] mb-1">Classic</div>
-                <div className="text-sm opacity-75 mb-3">Tradycyjny styl z ozdobnymi elementami</div>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-green-500/20 text-green-400 border border-green-400/30">
+                <div className="font-bold text-lg text-[#DAC0A3] mb-2">Classic</div>
+                <div className="text-sm opacity-90 mb-3">Tradycyjny styl z ozdobnymi elementami</div>
+                <div className="text-xs px-3 py-1 rounded-full inline-block" style={{ background: 'rgba(34, 197, 94, 0.2)', color: '#22c55e' }}>
                   ✓ Dostępny
                 </div>
               </div>
-              
-              {/* Wkrótce - Modern */}
-              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.2)' }}>
+              <div className="backdrop-blur-md rounded-xl p-6 opacity-60">
                 <div className="text-4xl mb-3">🎯</div>
-                <div className="font-bold text-lg text-[#EADBC8] mb-1">Modern</div>
-                <div className="text-sm opacity-75 mb-3">Nowoczesny minimalistyczny design</div>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/20 text-orange-400 border border-orange-400/30">
+                <div className="font-bold text-lg mb-2">Modern</div>
+                <div className="text-sm opacity-75 mb-3">Nowoczesny design</div>
+                <div className="text-xs px-3 py-1 rounded-full inline-block" style={{ background: 'rgba(234, 219, 200, 0.2)', color: '#DAC0A3' }}>
                   🚀 Wkrótce
                 </div>
               </div>
-              
-              {/* Wkrótce - Minimalist */}
-              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.2)' }}>
+              <div className="backdrop-blur-md rounded-xl p-6 opacity-60">
                 <div className="text-4xl mb-3">💎</div>
-                <div className="font-bold text-lg text-[#EADBC8] mb-1">Minimalist</div>
-                <div className="text-sm opacity-75 mb-3">Czysty i prosty layout</div>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/20 text-orange-400 border border-orange-400/30">
+                <div className="font-bold text-lg mb-2">Minimalist</div>
+                <div className="text-sm opacity-75 mb-3">Minimalistyczny</div>
+                <div className="text-xs px-3 py-1 rounded-full inline-block" style={{ background: 'rgba(234, 219, 200, 0.2)', color: '#DAC0A3' }}>
                   🚀 Wkrótce
                 </div>
               </div>
             </div>
             <p className="text-sm text-[#EADBC8] opacity-75 mt-6">
-              💡 Wszystkie dokumenty generowane w formacie PDF z możliwością personalizacji
+              💡 Wszystkie style będą wkrótce dostępne z możliwością pełnej personalizacji
             </p>
           </div>
         </div>
