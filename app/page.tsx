@@ -194,7 +194,7 @@ export default function Home() {
           <p className="text-xl text-[#EADBC8]">Wybierz plan dopasowany do Twojej parafii</p>
         </div>
 
-        <div className="grid lg:grid-cols-7 gap-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
           {/* TRIAL - 2 kolumny */}
           <div className="lg:col-span-2 backdrop-blur-xl rounded-2xl p-6 shadow-lg transition-all duration-300 hover:scale-105" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}>
             <div className="text-center mb-6">
@@ -222,38 +222,38 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* PRO - 3 kolumny (główna karta) */}
-          <div className="lg:col-span-3 relative backdrop-blur-xl rounded-2xl p-8 shadow-2xl transition-all duration-300 hover:scale-105" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.25) 0%, rgba(234, 219, 200, 0.15) 100%)', border: '2px solid rgba(218, 192, 163, 0.5)' }}>
+          {/* PRO - 2 kolumny (główna karta) */}
+          <div className="lg:col-span-2 relative backdrop-blur-xl rounded-2xl p-6 shadow-2xl transition-all duration-300 hover:scale-105" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.25) 0%, rgba(234, 219, 200, 0.15) 100%)', border: '2px solid rgba(218, 192, 163, 0.5)' }}>
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 text-[#0A1A33] px-4 py-1 rounded-full text-sm font-bold shadow-lg" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
               🔥 Najpopularniejszy
             </div>
             
-            <div className="text-center mb-6">
-              <h3 className="text-3xl font-bold text-[#FEFAF6] mb-2">PRO</h3>
-              <p className="text-[#EADBC8] text-sm mb-6">Dla parafii</p>
+            <div className="text-center mb-4">
+              <h3 className="text-2xl font-bold text-[#FEFAF6] mb-1">PRO</h3>
+              <p className="text-[#EADBC8] text-xs mb-4">Dla parafii</p>
               
               {/* Toggle miesięcznie/rocznie */}
-              <div className="flex justify-center gap-2 mb-6">
+              <div className="flex justify-center gap-1 mb-4">
                 <button
                   onClick={() => setBillingCycle('monthly')}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${billingCycle === 'monthly' ? 'text-[#0A1A33]' : 'text-[#EADBC8]'}`}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${billingCycle === 'monthly' ? 'text-[#0A1A33]' : 'text-[#EADBC8]'}`}
                   style={{ background: billingCycle === 'monthly' ? 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' : 'rgba(254, 250, 246, 0.1)' }}
                 >
                   Miesięcznie
                 </button>
                 <button
                   onClick={() => setBillingCycle('yearly')}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 relative ${billingCycle === 'yearly' ? 'text-[#0A1A33]' : 'text-[#EADBC8]'}`}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 relative ${billingCycle === 'yearly' ? 'text-[#0A1A33]' : 'text-[#EADBC8]'}`}
                   style={{ background: billingCycle === 'yearly' ? 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' : 'rgba(254, 250, 246, 0.1)' }}
                 >
                   Rocznie
-                  <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">-17%</span>
+                  <span className="absolute -top-1.5 -right-1.5 bg-green-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">-17%</span>
                 </button>
               </div>
 
               {/* Slider */}
-              <div className="mb-6">
-                <label className="block text-[#EADBC8] text-sm mb-2">
+              <div className="mb-4">
+                <label className="block text-[#EADBC8] text-xs mb-2">
                   Liczba parafian: <span className="text-[#DAC0A3] font-bold">{parishCount.toLocaleString('pl-PL')}</span>
                 </label>
                 <input
@@ -268,7 +268,7 @@ export default function Home() {
                     background: `linear-gradient(to right, #DAC0A3 0%, #DAC0A3 ${(parishCount / 13000) * 100}%, rgba(254, 250, 246, 0.2) ${(parishCount / 13000) * 100}%, rgba(254, 250, 246, 0.2) 100%)`
                   }}
                 />
-                <div className="flex justify-between text-xs text-[#EADBC8] mt-1">
+                <div className="flex justify-between text-[10px] text-[#EADBC8] mt-1">
                   <span>0</span>
                   <span>13 000+</span>
                 </div>
@@ -277,24 +277,24 @@ export default function Home() {
               {/* Cena */}
               {currentPricing.monthly !== null ? (
                 <>
-                  <div className="text-6xl font-bold text-[#DAC0A3] mb-2">
+                  <div className="text-4xl font-bold text-[#DAC0A3] mb-1">
                     {billingCycle === 'monthly' ? currentPricing.monthly : currentPricing.yearly} zł
                   </div>
-                  <div className="text-[#EADBC8] mb-2">
+                  <div className="text-[#EADBC8] text-xs mb-2">
                     {billingCycle === 'monthly' ? 'miesięcznie' : 'rocznie'}
                   </div>
                   {billingCycle === 'yearly' && (
-                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold text-[#0A1A33] mb-4" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+                    <div className="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold text-[#0A1A33] mb-2" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
                       🎁 2 miesiące gratis
                     </div>
                   )}
-                  <div className="text-sm text-[#EADBC8] opacity-75">{currentPricing.label} parafian</div>
+                  <div className="text-xs text-[#EADBC8] opacity-75">{currentPricing.label} parafian</div>
                 </>
               ) : (
                 <>
-                  <div className="text-5xl font-bold text-[#DAC0A3] mb-2">Custom</div>
-                  <div className="text-[#EADBC8] mb-4">Skontaktuj się z nami</div>
-                  <div className="text-sm text-[#EADBC8]">Powyżej 12 000 parafian</div>
+                  <div className="text-4xl font-bold text-[#DAC0A3] mb-1">Custom</div>
+                  <div className="text-[#EADBC8] text-xs mb-2">Skontaktuj się z nami</div>
+                  <div className="text-xs text-[#EADBC8]">Powyżej 12 000 parafian</div>
                 </>
               )}
             </div>
