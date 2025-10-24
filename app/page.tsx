@@ -465,35 +465,40 @@ export default function Home() {
           </div>
 
           <div className="backdrop-blur-xl rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.2) 0%, rgba(234, 219, 200, 0.1) 100%)', border: '1px solid rgba(218, 192, 163, 0.4)' }}>
-            <h3 className="text-2xl font-bold text-[#FEFAF6] mb-4">🎨 Style Dokumentów</h3>
-            <div className="grid md:grid-cols-3 gap-6 text-[#EADBC8]">
+            <h3 className="text-2xl font-bold text-[#FEFAF6] mb-4">🎨 Styl Dokumentów</h3>
+            <div className="grid md:grid-cols-3 gap-6 text-[#EADBC8] mb-6">
+              {/* Classic - Dostępny */}
               <div className="backdrop-blur-md rounded-xl p-6" style={{ background: 'rgba(218, 192, 163, 0.15)', border: '1px solid rgba(234, 219, 200, 0.3)' }}>
                 <div className="text-4xl mb-3">✨</div>
-                <div className="font-bold text-lg text-[#DAC0A3] mb-2">Classic</div>
-                <div className="text-sm opacity-90 mb-3">Tradycyjny styl z ozdobnymi elementami</div>
-                <div className="text-xs px-3 py-1 rounded-full inline-block" style={{ background: 'rgba(34, 197, 94, 0.2)', color: '#22c55e' }}>
-                  ✓ Dostępny
+                <div className="text-lg font-bold text-[#DAC0A3] mb-2">Classic</div>
+                <div className="text-sm opacity-75 mb-3">Tradycyjny styl z ozdobnymi elementami</div>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-[#0A1A33]" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+                  ✓ Dostępny teraz
                 </div>
               </div>
-              <div className="backdrop-blur-md rounded-xl p-6 opacity-60">
+
+              {/* Modern - Wkrótce */}
+              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.15)' }}>
                 <div className="text-4xl mb-3">🎯</div>
-                <div className="font-bold text-lg mb-2">Modern</div>
+                <div className="text-lg font-bold text-[#EADBC8] mb-2">Modern</div>
                 <div className="text-sm opacity-75 mb-3">Nowoczesny design</div>
-                <div className="text-xs px-3 py-1 rounded-full inline-block" style={{ background: 'rgba(234, 219, 200, 0.2)', color: '#DAC0A3' }}>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-[#DAC0A3]" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
                   🚀 Wkrótce
                 </div>
               </div>
-              <div className="backdrop-blur-md rounded-xl p-6 opacity-60">
+              
+              {/* Minimalist - Wkrótce */}
+              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.15)' }}>
                 <div className="text-4xl mb-3">💎</div>
-                <div className="font-bold text-lg mb-2">Minimalist</div>
-                <div className="text-sm opacity-75 mb-3">Minimalistyczny</div>
-                <div className="text-xs px-3 py-1 rounded-full inline-block" style={{ background: 'rgba(234, 219, 200, 0.2)', color: '#DAC0A3' }}>
+                <div className="text-lg font-bold text-[#EADBC8] mb-2">Minimalist</div>
+                <div className="text-sm opacity-75 mb-3">Minimalistyczny layout</div>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-[#DAC0A3]" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
                   🚀 Wkrótce
                 </div>
               </div>
             </div>
-            <p className="text-sm text-[#EADBC8] opacity-75 mt-6">
-              💡 Wszystkie style będą wkrótce dostępne z możliwością pełnej personalizacji
+            <p className="text-sm text-[#EADBC8] opacity-75">
+              Obecnie dostępny styl Classic. Więcej stylów w przygotowaniu!
             </p>
           </div>
         </div>
