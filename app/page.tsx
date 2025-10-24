@@ -465,41 +465,39 @@ export default function Home() {
           </div>
 
           <div className="backdrop-blur-xl rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.2) 0%, rgba(234, 219, 200, 0.1) 100%)', border: '1px solid rgba(218, 192, 163, 0.4)' }}>
-            <h3 className="text-2xl font-bold text-[#FEFAF6] mb-4">🎨 Styl Dokumentów</h3>
-            <div className="grid md:grid-cols-3 gap-6 text-[#EADBC8] mb-6">
-              {/* Classic - Dostępny */}
-              <div className="backdrop-blur-md rounded-xl p-6" style={{ background: 'rgba(218, 192, 163, 0.15)', border: '1px solid rgba(234, 219, 200, 0.3)' }}>
+            <h3 className="text-2xl font-bold text-[#FEFAF6] mb-2">🎨 Styl Dokumentów</h3>
+            <p className="text-[#EADBC8] text-sm mb-6 opacity-90">Obecnie dostępny jeden styl, więcej stylów w przygotowaniu</p>
+            <div className="grid md:grid-cols-3 gap-6 text-[#EADBC8]">
+              {/* Dostępny styl */}
+              <div className="backdrop-blur-md rounded-xl p-6" style={{ background: 'rgba(218, 192, 163, 0.25)', border: '2px solid rgba(218, 192, 163, 0.5)' }}>
                 <div className="text-4xl mb-3">✨</div>
-                <div className="text-lg font-bold text-[#DAC0A3] mb-2">Classic</div>
-                <div className="text-sm opacity-75 mb-3">Tradycyjny styl z ozdobnymi elementami</div>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-[#0A1A33]" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
-                  ✓ Dostępny teraz
+                <div className="font-bold text-lg text-[#DAC0A3] mb-2">Classic</div>
+                <div className="text-sm opacity-90 mb-3">Tradycyjny styl z ozdobnymi elementami</div>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-green-500/20 text-green-400 border border-green-400/30">
+                  ✓ Dostępny
                 </div>
               </div>
-
-              {/* Modern - Wkrótce */}
-              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.15)' }}>
+              
+              {/* Wkrótce - Modern */}
+              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.2)' }}>
                 <div className="text-4xl mb-3">🎯</div>
-                <div className="text-lg font-bold text-[#EADBC8] mb-2">Modern</div>
-                <div className="text-sm opacity-75 mb-3">Nowoczesny design</div>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-[#DAC0A3]" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
+                <div className="font-bold text-lg text-[#EADBC8] mb-2">Modern</div>
+                <div className="text-sm opacity-75 mb-3">Nowoczesny minimalistyczny design</div>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/20 text-orange-400 border border-orange-400/30">
                   🚀 Wkrótce
                 </div>
               </div>
               
-              {/* Minimalist - Wkrótce */}
-              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.15)' }}>
+              {/* Wkrótce - Minimalist */}
+              <div className="backdrop-blur-md rounded-xl p-6 opacity-60" style={{ background: 'rgba(254, 250, 246, 0.05)', border: '1px solid rgba(218, 192, 163, 0.2)' }}>
                 <div className="text-4xl mb-3">💎</div>
-                <div className="text-lg font-bold text-[#EADBC8] mb-2">Minimalist</div>
-                <div className="text-sm opacity-75 mb-3">Minimalistyczny layout</div>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-[#DAC0A3]" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
+                <div className="font-bold text-lg text-[#EADBC8] mb-2">Minimalist</div>
+                <div className="text-sm opacity-75 mb-3">Czysty i prosty layout</div>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/20 text-orange-400 border border-orange-400/30">
                   🚀 Wkrótce
                 </div>
               </div>
             </div>
-            <p className="text-sm text-[#EADBC8] opacity-75">
-              Obecnie dostępny styl Classic. Więcej stylów w przygotowaniu!
-            </p>
           </div>
         </div>
       </section>
