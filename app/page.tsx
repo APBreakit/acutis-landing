@@ -80,10 +80,10 @@ export default function Home() {
       ],
       documents: [
         'Świadectwo chrztu',
-        'Kancelaryjna karta chrztu świętego',
-        'Ad sacra - wyciąg z aktu',
+        'Kancelaryjna karta chrztu',
+        'Ad sacra (wyciąg z aktu)',
         'Świadectwo rodzica chrzestnego',
-        'Przygotowanie do chrztu świętego',
+        'Przygotowanie do chrztu',
         'Zgoda na chrzest poza parafią',
       ],
     },
