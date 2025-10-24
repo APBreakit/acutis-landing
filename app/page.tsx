@@ -64,6 +64,94 @@ export default function Home() {
     },
   ];
 
+  const sacraments = [
+    {
+      id: 'chrzty',
+      title: 'Chrzty Święte',
+      icon: '💧',
+      description: 'Kompleksowe zarządzanie sakramentem chrztu świętego',
+      features: [
+        'Dane dziecka i rodziców',
+        'Chrzestni z pełnymi danymi',
+        'Numeracja aktów chrztów',
+        'Historia sakramentów',
+        'Relacje rodzinne',
+      ],
+      documents: [
+        'Zaświadczenie o chrzcie',
+        'Akt chrztu',
+        'Karta sakramentów',
+        'Metryka chrztu',
+      ],
+    },
+    {
+      id: 'bierzmowania',
+      title: 'Bierzmowania',
+      icon: '🕊️',
+      description: 'Organizacja i dokumentacja sakramentu bierzmowania',
+      features: [
+        'Lista kandydatów',
+        'Świadkowie bierzmowania',
+        'Dane biskupa',
+        'Katecheza przedbierzmowaniowa',
+        'Historia przygotowania',
+      ],
+      documents: [
+        'Zaświadczenie o bierzmowaniu',
+        'Akt bierzmowania',
+        'Lista kandydatów',
+        'Certyfikat bierzmowania',
+      ],
+    },
+    {
+      id: 'sluby',
+      title: 'Śluby',
+      icon: '💍',
+      description: 'Pełna obsługa sakramentu małżeństwa',
+      features: [
+        'Dane nowożeńców',
+        'Świadkowie ślubu',
+        'Dokumentacja przedślubna',
+        'Kurs przedmałżeński',
+        'Protokoły kościelne',
+      ],
+      documents: [
+        'Akt małżeństwa',
+        'Zaświadczenie o ślubie',
+        'Protokół przedślubny',
+        'Metryka małżeństwa',
+      ],
+    },
+    {
+      id: 'pogrzeby',
+      title: 'Pogrzeby',
+      icon: '🕯️',
+      description: 'Dokumentacja ceremonii pogrzebowych',
+      features: [
+        'Dane zmarłego',
+        'Rodzina zmarłego',
+        'Ceremonie pogrzebowe',
+        'Miejsca pochówku',
+        'Historia liturgii',
+      ],
+      documents: [
+        'Akt zgonu',
+        'Zaświadczenie o pogrzebie',
+        'Karta pogrzebu',
+        'Protokół ceremonii',
+      ],
+    },
+  ];
+
+  const platforms = [
+    { name: 'Windows', icon: '🪟', available: true },
+    { name: 'macOS', icon: '🍎', available: true },
+    { name: 'Linux', icon: '🐧', available: true },
+    { name: 'Web', icon: '🌐', available: true },
+    { name: 'iOS', icon: '📱', available: false, soon: true },
+    { name: 'Android', icon: '🤖', available: false, soon: true },
+  ];
+
   return (
     <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A1A33 0%, #102C57 50%, #0E2340 100%)' }}>
       {/* Animated liquid gradient */}
@@ -163,8 +251,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Quick Navigation */}
+      <section className="relative z-10 container mx-auto px-6 py-8">
+        <div className="flex flex-wrap justify-center gap-3">
+          {['Funkcje', 'Sakramenty', 'Wydruki', 'Platformy', 'Cennik'].map((item, i) => (
+            <a
+              key={i}
+              href={`#${item.toLowerCase()}`}
+              className="px-6 py-2 backdrop-blur-xl rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 text-[#EADBC8] hover:text-[#DAC0A3]"
+              style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
+      <section id="funkcje" className="relative z-10 container mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Wszystko czego potrzebujesz</h2>
           <p className="text-xl text-[#EADBC8]">Kompleksowe narzędzie do zarządzania parafią</p>
@@ -187,8 +291,171 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sacraments Detailed Section */}
+      <section id="sakramenty" className="relative z-10 container mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Sakramenty - Szczegółowo</h2>
+          <p className="text-xl text-[#EADBC8]">Kompleksowa obsługa każdego sakramentu</p>
+        </div>
+
+        <div className="space-y-12 max-w-6xl mx-auto">
+          {sacraments.map((sacrament, i) => (
+            <div
+              key={i}
+              id={sacrament.id}
+              className="backdrop-blur-xl rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl"
+              style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}
+            >
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="text-6xl">{sacrament.icon}</span>
+                    <div>
+                      <h3 className="text-3xl font-bold text-[#FEFAF6]">{sacrament.title}</h3>
+                      <p className="text-[#EADBC8] mt-2">{sacrament.description}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <h4 className="text-xl font-bold text-[#DAC0A3] mb-4">📋 Funkcje:</h4>
+                    <ul className="space-y-2">
+                      {sacrament.features.map((feature, j) => (
+                        <li key={j} className="flex items-center text-[#EADBC8]">
+                          <span className="mr-3 text-[#DAC0A3]">✓</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-[#DAC0A3] mb-4">📄 Dostępne wydruki:</h4>
+                  <div className="grid grid-cols-2 gap-3">
+                    {sacrament.documents.map((doc, j) => (
+                      <div
+                        key={j}
+                        className="backdrop-blur-md rounded-xl p-4 text-center transition-all duration-300 hover:scale-105"
+                        style={{ background: 'rgba(218, 192, 163, 0.15)', border: '1px solid rgba(234, 219, 200, 0.3)' }}
+                      >
+                        <div className="text-2xl mb-2">📄</div>
+                        <div className="text-sm text-[#EADBC8] font-medium">{doc}</div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-6 p-4 rounded-xl" style={{ background: 'rgba(218, 192, 163, 0.1)' }}>
+                    <p className="text-xs text-[#EADBC8] text-center">
+                      💡 Wszystkie dokumenty w formacie PDF z możliwością dostosowania stylów
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Print Examples Section with Scroll Animation */}
+      <section id="wydruki" className="relative z-10 container mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Przykładowe Wydruki</h2>
+          <p className="text-xl text-[#EADBC8]">Profesjonalne dokumenty kościelne</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {[
+              { title: 'Zaświadczenie o Chrzcie', type: 'Classic' },
+              { title: 'Akt Małżeństwa', type: 'Modern' },
+              { title: 'Certyfikat Bierzmowania', type: 'Elegant' },
+              { title: 'Karta Sakramentów', type: 'Minimalist' },
+            ].map((doc, i) => (
+              <div
+                key={i}
+                className="group backdrop-blur-xl rounded-2xl p-6 transition-all duration-500 hover:scale-105 cursor-pointer"
+                style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.25)' }}
+              >
+                <div className="aspect-[3/4] rounded-lg mb-4 flex items-center justify-center transition-all duration-500 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.2) 0%, rgba(234, 219, 200, 0.1) 100%)' }}>
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📄</div>
+                    <div className="text-[#DAC0A3] font-bold text-lg">{doc.type}</div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-[#FEFAF6] text-center">{doc.title}</h4>
+              </div>
+            ))}
+          </div>
+
+          <div className="backdrop-blur-xl rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, rgba(218, 192, 163, 0.2) 0%, rgba(234, 219, 200, 0.1) 100%)', border: '1px solid rgba(218, 192, 163, 0.4)' }}>
+            <h3 className="text-2xl font-bold text-[#FEFAF6] mb-4">🎨 3 Style Dokumentów</h3>
+            <div className="grid md:grid-cols-3 gap-4 text-[#EADBC8]">
+              <div>
+                <div className="text-3xl mb-2">✨</div>
+                <div className="font-semibold">Classic</div>
+                <div className="text-sm opacity-75">Tradycyjny styl</div>
+              </div>
+              <div>
+                <div className="text-3xl mb-2">🎯</div>
+                <div className="font-semibold">Modern</div>
+                <div className="text-sm opacity-75">Nowoczesny design</div>
+              </div>
+              <div>
+                <div className="text-3xl mb-2">💎</div>
+                <div className="font-semibold">Minimalist</div>
+                <div className="text-sm opacity-75">Minimalistyczny</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platforms Section */}
+      <section id="platformy" className="relative z-10 container mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Dostępne Platformy</h2>
+          <p className="text-xl text-[#EADBC8]">Pracuj na każdym urządzeniu</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
+          {platforms.map((platform, i) => (
+            <div
+              key={i}
+              className={`backdrop-blur-xl rounded-2xl p-6 text-center transition-all duration-300 ${platform.available ? 'hover:scale-110' : 'opacity-60'}`}
+              style={{ background: 'rgba(254, 250, 246, 0.08)', border: `1px solid rgba(218, 192, 163, ${platform.available ? '0.25' : '0.15'})` }}
+            >
+              <div className="text-5xl mb-3">{platform.icon}</div>
+              <div className="text-[#FEFAF6] font-bold mb-1">{platform.name}</div>
+              {platform.available ? (
+                <div className="text-xs text-green-400">✓ Dostępne</div>
+              ) : platform.soon ? (
+                <div className="text-xs text-[#DAC0A3]">🚀 Wkrótce</div>
+              ) : null}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 max-w-3xl mx-auto backdrop-blur-xl rounded-2xl p-8 text-center" style={{ background: 'rgba(218, 192, 163, 0.15)', border: '1px solid rgba(234, 219, 200, 0.3)' }}>
+          <h3 className="text-2xl font-bold text-[#FEFAF6] mb-4">📱 Wersja Mobilna w Przygotowaniu</h3>
+          <p className="text-[#EADBC8] mb-6">
+            Pracujemy nad aplikacjami mobilnymi dla iOS i Android. 
+            Już wkrótce będziesz mógł zarządzać parafią z telefonu!
+          </p>
+          <div className="flex justify-center gap-4">
+            <div className="px-4 py-2 rounded-lg" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
+              <span className="text-2xl mr-2">📱</span>
+              <span className="text-[#DAC0A3] font-semibold">iOS - Q2 2025</span>
+            </div>
+            <div className="px-4 py-2 rounded-lg" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
+              <span className="text-2xl mr-2">🤖</span>
+              <span className="text-[#DAC0A3] font-semibold">Android - Q2 2025</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
-      <section id="pricing" className="relative z-10 container mx-auto px-6 py-20">
+      <section id="cennik" className="relative z-10 container mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#FEFAF6] mb-4">Przejrzyste Ceny</h2>
           <p className="text-xl text-[#EADBC8]">Wybierz plan dopasowany do Twojej parafii</p>
