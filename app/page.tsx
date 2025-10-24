@@ -51,35 +51,22 @@ export default function Home() {
     {
       name: 'TRIAL',
       price: '0',
-      period: '30 dni',
+      period: '14 dni',
       description: 'Bezpłatny okres próbny',
       features: [
         'Wszystkie funkcje',
         'Do 100 parafian',
-        '30 dni dostępu',
+        '14 dni dostępu',
         'Email support',
       ],
       popular: false,
-    },
-    {
-      name: 'BASIC',
-      price: '49',
-      period: 'miesięcznie',
-      description: 'Dla małych parafii',
-      features: [
-        'Do 500 parafian',
-        'Wszystkie funkcje',
-        'Backup codzienne',
-        'Email + Chat support',
-        '1 urządzenie',
-      ],
-      popular: false,
+      originalPrice: null,
     },
     {
       name: 'PRO',
       price: '99',
       period: 'miesięcznie',
-      description: 'Dla średnich parafii',
+      description: 'Dla parafii',
       features: [
         'Do 2000 parafian',
         'Wszystkie funkcje',
@@ -89,14 +76,16 @@ export default function Home() {
         'Szkolenie online',
       ],
       popular: true,
+      originalPrice: '199',
     },
     {
-      name: 'ENTERPRISE',
+      name: 'DIECEZJE',
       price: 'Custom',
       period: 'kontakt',
-      description: 'Dla dużych parafii',
+      description: 'Dla diecezji',
       features: [
-        'Nielimitowani parafianie',
+        'Nielimitowane parafie',
+        'Centralne zarządzanie',
         'Wszystkie funkcje',
         'Dedykowany support',
         'Nieograniczone urządzenia',
@@ -104,6 +93,7 @@ export default function Home() {
         'Custom integracje',
       ],
       popular: false,
+      originalPrice: null,
     },
   ];
 
@@ -237,7 +227,7 @@ export default function Home() {
           <p className="text-xl text-[#EADBC8]">Wybierz plan dopasowany do Twojej parafii</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {pricing.map((plan, i) => (
             <div
               key={i}
@@ -260,9 +250,23 @@ export default function Home() {
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-[#FEFAF6] mb-2">{plan.name}</h3>
                 <p className="text-[#EADBC8] text-sm mb-4">{plan.description}</p>
+                
+                {plan.originalPrice && (
+                  <div className="text-2xl text-[#EADBC8] line-through opacity-60 mb-1">
+                    {plan.originalPrice} zł
+                  </div>
+                )}
+                
                 <div className="text-5xl font-bold text-[#DAC0A3] mb-2">
                   {plan.price === 'Custom' ? plan.price : `${plan.price} zł`}
                 </div>
+                
+                {plan.originalPrice && (
+                  <div className="inline-block px-3 py-1 rounded-full text-xs font-bold text-[#0A1A33] mb-2" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
+                    💰 Oszczędzasz {parseInt(plan.originalPrice) - parseInt(plan.price)} zł
+                  </div>
+                )}
+                
                 <div className="text-[#EADBC8]">{plan.period}</div>
               </div>
 
@@ -300,7 +304,7 @@ export default function Home() {
           <p className="text-xl text-[#EADBC8] mb-8">
             Dołącz do setek parafii, które już korzystają z Acutis.
             <br />
-            Wypróbuj za darmo przez 30 dni.
+            Wypróbuj za darmo przez 14 dni.
           </p>
           <Link
             href="https://dash.acutisapp.com/register"
