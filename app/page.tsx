@@ -562,7 +562,7 @@ export default function Home() {
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#DAC0A3] via-[#EADBC8] to-transparent opacity-30"></div>
 
-            {/* Beta - 30 października 2024 */}
+            {/* Beta - 30 października 2025 */}
             <div className="relative mb-12 ml-20">
               <div className="absolute -left-[52px] top-2 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}>
                 <span className="text-xl">🚀</span>
@@ -601,7 +601,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Alpha - 7 września 2024 */}
+            {/* Alpha - 7 września 2025 */}
             <div className="relative mb-12 ml-20">
               <div className="absolute -left-[52px] top-2 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(218, 192, 163, 0.3)', border: '2px solid rgba(218, 192, 163, 0.5)' }}>
                 <span className="text-xl">🔧</span>
@@ -614,7 +614,7 @@ export default function Home() {
                     📦 Archiwalna
                   </span>
                 </div>
-                <p className="text-[#EADBC8] text-sm mb-4 opacity-75">7 września 2024</p>
+                <p className="text-[#EADBC8] text-sm mb-4 opacity-75">7 września 2025</p>
                 <div className="space-y-2 opacity-75">
                   <div className="flex items-start">
                     <span className="text-[#DAC0A3] mr-2">🎯</span>
