@@ -885,6 +885,10 @@ export default function Home() {
               </li>
               <li className="flex items-center text-[#EADBC8]">
                 <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Import/Export danych
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
                 Email support
               </li>
             </ul>
@@ -978,6 +982,10 @@ export default function Home() {
               <li className="flex items-center text-[#EADBC8]">
                 <span className="mr-2 text-[#DAC0A3]">✓</span>
                 Wszystkie funkcje
+              </li>
+              <li className="flex items-center text-[#EADBC8]">
+                <span className="mr-2 text-[#DAC0A3]">✓</span>
+                Import/Export danych
               </li>
               <li className="flex items-center text-[#EADBC8]">
                 <span className="mr-2 text-[#DAC0A3]">✓</span>
