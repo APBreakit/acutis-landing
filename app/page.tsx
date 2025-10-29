@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { platforms } from './_data/platforms';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -137,15 +139,6 @@ export default function Home() {
         'Zgoda na pogrzeb poza parafią',
       ],
     },
-  ];
-
-  const platforms = [
-    { name: 'Windows', icon: '🪟', available: true },
-    { name: 'macOS', icon: '🍎', available: true },
-    { name: 'Linux', icon: '🐧', available: true },
-    { name: 'Web', icon: '🌐', available: true },
-    { name: 'iOS', icon: '📱', available: false, soon: true },
-    { name: 'Android', icon: '🤖', available: false, soon: true },
   ];
 
   const menuItems = [
@@ -508,38 +501,67 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
-          {platforms.map((platform, i) => (
+          {platforms.map((platform) => (
             <div
-              key={i}
-              className={`backdrop-blur-xl rounded-2xl p-6 text-center transition-all duration-300 ${platform.available ? 'hover:scale-110' : 'opacity-60'}`}
+              key={platform.id}
+              className={`backdrop-blur-xl rounded-2xl p-6 text-center transition-all duration-300 flex flex-col items-center ${platform.available ? 'hover:scale-110' : 'opacity-70'}`}
               style={{ background: 'rgba(254, 250, 246, 0.08)', border: `1px solid rgba(218, 192, 163, ${platform.available ? '0.25' : '0.15'})` }}
             >
-              <div className="text-5xl mb-3">{platform.icon}</div>
-              <div className="text-[#FEFAF6] font-bold mb-1">{platform.name}</div>
+              <div className="relative mb-4">
+                <div className="absolute inset-0 blur-2xl opacity-30" style={{ background: 'radial-gradient(circle, rgba(218, 192, 163, 0.6) 0%, transparent 70%)' }} />
+                <div className="relative">
+                  <Image
+                    src={platform.image.src}
+                    alt={platform.image.alt}
+                    width={platform.image.width}
+                    height={platform.image.height}
+                    className="mx-auto"
+                  />
+                </div>
+              </div>
+              <div className="text-[#FEFAF6] font-bold mb-1 text-lg">{platform.name}</div>
+              <p className="text-xs text-[#EADBC8] opacity-80 mb-4 leading-snug text-balance">
+                {platform.description}
+              </p>
               {platform.available ? (
-                <div className="text-xs text-green-400">✓ Dostępne</div>
-              ) : platform.soon ? (
-                <div className="text-xs text-[#DAC0A3]">🚀 Wkrótce</div>
-              ) : null}
+                <Link
+                  href={platform.downloadUrl ?? 'https://dash.acutisapp.com'}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 text-[#0A1A33]"
+                  style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}
+                >
+                  ⬇️ {platform.downloadLabel ?? 'Pobierz'}
+                </Link>
+              ) : (
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px dashed rgba(218, 192, 163, 0.4)' }}>
+                  🚧 Wkrótce
+                  {platform.comingSoonLabel && (
+                    <span className="text-[#DAC0A3]">{platform.comingSoonLabel}</span>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="mt-12 max-w-3xl mx-auto backdrop-blur-xl rounded-2xl p-8 text-center" style={{ background: 'rgba(218, 192, 163, 0.15)', border: '1px solid rgba(234, 219, 200, 0.3)' }}>
-          <h3 className="text-2xl font-bold text-[#FEFAF6] mb-4">📱 Wersja Mobilna w Przygotowaniu</h3>
-          <p className="text-[#EADBC8] mb-6">
-            Pracujemy nad aplikacjami mobilnymi dla iOS i Android. 
-            Już wkrótce będziesz mógł zarządzać parafią z telefonu!
-          </p>
-          <div className="flex justify-center gap-4">
-            <div className="px-4 py-2 rounded-lg" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
-              <span className="text-2xl mr-2">📱</span>
-              <span className="text-[#DAC0A3] font-semibold">iOS - Q2 2025</span>
-            </div>
-            <div className="px-4 py-2 rounded-lg" style={{ background: 'rgba(254, 250, 246, 0.1)' }}>
-              <span className="text-2xl mr-2">🤖</span>
-              <span className="text-[#DAC0A3] font-semibold">Android - Q2 2025</span>
-            </div>
+        <div className="mt-16 max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          <div className="backdrop-blur-xl rounded-2xl p-6 text-left" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.2)' }}>
+            <h3 className="text-xl font-bold text-[#FEFAF6] mb-3">Integracja z Acutis Dashboard</h3>
+            <p className="text-sm text-[#EADBC8] leading-relaxed">
+              Wszystkie wersje aplikacji współpracują z tym samym kontem parafii. Zalecamy korzystanie z wersji desktopowej do pracy w kancelarii oraz wersji webowej podczas wizyt duszpasterskich.
+            </p>
+          </div>
+          <div className="backdrop-blur-xl rounded-2xl p-6 text-left" style={{ background: 'rgba(254, 250, 246, 0.08)', border: '1px solid rgba(218, 192, 163, 0.2)' }}>
+            <h3 className="text-xl font-bold text-[#FEFAF6] mb-3">Aplikacje mobilne</h3>
+            <p className="text-sm text-[#EADBC8] leading-relaxed">
+              Aplikacje na iOS i Android są w fazie przygotowania. Możesz zapisać się na listę oczekujących i otrzymać powiadomienie o starcie testów beta.
+            </p>
+            <Link
+              href="https://dash.acutisapp.com/mobile-waitlist"
+              className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 text-[#0A1A33]"
+              style={{ background: 'linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)' }}
+            >
+              📨 Dołącz do listy oczekujących
+            </Link>
           </div>
         </div>
       </section>
