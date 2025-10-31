@@ -827,7 +827,7 @@ export default function Home() {
                     alt={platform.image.alt}
                     width={platform.image.width}
                     height={platform.image.height}
-                    className="mx-auto w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28"
+                    className="mx-auto w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 text-white"
                     style={{
                       filter: "brightness(2.5) contrast(1.2) saturate(0.8) invert(0.9)",
                     }}
@@ -1078,7 +1078,7 @@ export default function Home() {
                       📱
                     </span>
                     <p className="text-[#EADBC8] opacity-80 leading-relaxed">
-                      Aplikacje mobilne iOS i Android (Q2 2025)
+                      Aplikacje mobilne iOS i Android (Q1 2026)
                     </p>
                   </div>
                   <div className="flex items-start group/item">
@@ -1149,7 +1149,7 @@ export default function Home() {
             },
             {
               q: "Czy aplikacja będzie dostępna na telefony?",
-              a: "Tak! Pracujemy nad aplikacjami mobilnymi dla iOS i Android. Planowane wydanie: Q2 2025. Będą one synchronizować się z wersją desktopową.",
+              a: "Tak! Pracujemy nad aplikacjami mobilnymi dla iOS i Android. Planowane wydanie: Q1 2026. Będą one synchronizować się z wersją desktopową.",
             },
           ].map((faq, i) => (
             <details
@@ -1174,13 +1174,13 @@ export default function Home() {
           <p className="text-[#EADBC8] mb-3 sm:mb-4 text-sm sm:text-base px-4">
             Nie znalazłeś odpowiedzi na swoje pytanie?
           </p>
-          <Link
+          <a
             href="mailto:support@acutisapp.com"
             className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl text-[#FEFAF6] font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base"
             style={{ background: "rgba(254, 250, 246, 0.1)", border: "1px solid rgba(218, 192, 163, 0.4)" }}
           >
             📧 Skontaktuj się z nami
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -1243,7 +1243,7 @@ export default function Home() {
             }}
           >
             <div
-              className="absolute -top-4 left-1/2 transform -translate-x-1/2 text-[#0A1A33] px-4 py-1 rounded-full text-sm font-bold shadow-lg"
+              className="absolute -top-4 left-1/2 transform -translate-x-1/2 text-[#0A1A33] py-1 rounded-full text-sm font-bold shadow-lg px-1"
               style={{ background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)" }}
             >
               🔥 Najpopularniejszy
@@ -1370,7 +1370,7 @@ export default function Home() {
               href={
                 currentPricing.monthly !== null ? "https://dash.acutisapp.com/register" : "mailto:kontakt@acutisapp.com"
               }
-              className="block w-full py-3 rounded-xl text-center font-bold transition-all duration-300 hover:scale-105 text-[#0A1A33]"
+              className="block w-full rounded-xl text-center font-bold transition-all duration-300 hover:scale-105 text-[#0A1A33] py-2"
               style={{ background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)" }}
             >
               {currentPricing.monthly !== null ? "Wybierz Plan" : "Skontaktuj się"}
@@ -1438,7 +1438,7 @@ export default function Home() {
           </p>
           <Link
             href="https://dash.acutisapp.com/register"
-            className="inline-block px-8 sm:px-10 py-3.5 sm:py-4 md:py-5 text-[#0A1A33] text-base sm:text-lg md:text-xl font-bold rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl"
+            className="inline-block px-8 py-3.5 sm:py-4 text-[#0A1A33] text-base sm:text-lg md:text-xl font-bold transition-all duration-300 hover:scale-105 shadow-2xl sm:px-5 md:py-3.5 rounded-3xl"
             style={{ background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)" }}
           >
             🚀 Wypróbuj Acutis za darmo
@@ -1457,7 +1457,7 @@ export default function Home() {
             {/* Logo i opis */}
             <div className="md:col-span-2">
               <div
-                className="inline-block px-6 py-4 rounded-2xl mb-4"
+                className="inline-block py-4 rounded-2xl mb-4 px-6"
                 style={{
                   background: "linear-gradient(135deg, #0A1A33 0%, #102C57 100%)",
                   border: "2px solid rgba(218, 192, 163, 0.4)",
