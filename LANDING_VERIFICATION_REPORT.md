@@ -137,31 +137,31 @@ Landing page mówi:
 Zastąp obecne fikcyjne nazwy rzeczywistymi dokumentami z aplikacji:
 
 **CHRZTY (6 dokumentów):**
-```
+\`\`\`
 ✅ Świadectwo chrztu
 ✅ Kancelaryjna karta chrztu
 ✅ Ad sacra (wyciąg z aktu)
 ✅ Świadectwo rodzica chrzestnego
 ✅ Przygotowanie do chrztu
 ✅ Zgoda na chrzest poza parafią
-```
+\`\`\`
 
 **BIERZMOWANIA (2 dokumenty):**
-```
+\`\`\`
 ✅ Świadectwo bierzmowania
 ✅ Świadectwo świadka kandydata
-```
+\`\`\`
 
 **ŚLUBY (1 dokument):**
-```
+\`\`\`
 ✅ Świadectwo ślubu
-```
+\`\`\`
 
 **POGRZEBY (2 dokumenty):**
-```
+\`\`\`
 ✅ Świadectwo pogrzebu
 ✅ Zgoda na pogrzeb poza parafią
-```
+\`\`\`
 
 ### 2. **Sekcja Funkcje**
 
@@ -178,12 +178,12 @@ Pozostaw:
 ### 3. **Sekcja Przykładowe Wydruki**
 
 Zamień fikcyjne przykłady na rzeczywiste:
-```
+\`\`\`
 ❌ Zaświadczenie o Chrzcie → ✅ Świadectwo Chrztu
 ❌ Akt Małżeństwa → ✅ Świadectwo Ślubu
 ❌ Certyfikat Bierzmowania → ✅ Świadectwo Bierzmowania
 ❌ Karta Sakramentów → ✅ Ad Sacra (wyciąg z aktu chrztu)
-```
+\`\`\`
 
 ---
 

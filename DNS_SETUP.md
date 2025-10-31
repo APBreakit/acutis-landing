@@ -13,21 +13,21 @@ Zaloguj się do panelu OVH i skonfiguruj następujące rekordy DNS:
 
 ### Opcja A: A Record (Rekomendowane)
 
-```
+\`\`\`
 Type: A
 Name: @ (lub puste dla root domain)
 Target: 76.76.21.21
 TTL: 3600 (1 godzina)
-```
+\`\`\`
 
 ### Opcja B: CNAME Record
 
-```
+\`\`\`
 Type: CNAME
 Name: www
 Target: cname.vercel-dns.com
 TTL: 3600
-```
+\`\`\`
 
 ---
 
@@ -46,20 +46,20 @@ Po skonfigurowaniu DNS w OVH:
 
 ### Polecenie:
 
-```bash
+\`\`\`bash
 dig acutisapp.com
-```
+\`\`\`
 
 lub
 
-```bash
+\`\`\`bash
 nslookup acutisapp.com
-```
+\`\`\`
 
 Powinieneś zobaczyć:
-```
+\`\`\`
 acutisapp.com.  3600  IN  A  76.76.21.21
-```
+\`\`\`
 
 ---
 
@@ -67,10 +67,10 @@ acutisapp.com.  3600  IN  A  76.76.21.21
 
 Jeśli chcesz pełną kontrolę przez Vercel, zmień nameservers w OVH na:
 
-```
+\`\`\`
 ns1.vercel-dns.com
 ns2.vercel-dns.com
-```
+\`\`\`
 
 **Uwaga:** Ta opcja przeniesie CAŁĄ kontrolę DNS do Vercel (w tym emaile, jeśli używasz).
 

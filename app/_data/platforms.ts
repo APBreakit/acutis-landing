@@ -1,100 +1,86 @@
 export type PlatformInfo = {
-  id: string;
-  name: string;
-  description: string;
-  available: boolean;
+  id: string
+  name: string
+  description: string
+  available: boolean
   image: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
-  downloadUrl?: string;
-  downloadLabel?: string;
-  comingSoonLabel?: string;
-};
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
+  downloadUrl?: string
+  downloadLabel?: string
+  comingSoonLabel?: string
+}
 
 export const platforms: PlatformInfo[] = [
   {
-    id: 'windows',
-    name: 'Windows',
-    description: 'Instalator dla systemów Windows 10 i 11 (64-bit)',
+    id: "windows",
+    name: "Windows",
+    description: "Instalator dla systemów Windows 10 i 11 (64-bit)",
     available: true,
     image: {
-      src: '/platforms/windows.svg',
-      alt: 'Logo Microsoft Windows',
+      src: "/platforms/windows.svg",
+      alt: "Logo Microsoft Windows",
       width: 64,
       height: 64,
     },
-    downloadUrl: 'https://dash.acutisapp.com/download/windows',
-    downloadLabel: 'Pobierz .exe',
+    downloadUrl: "https://dash.acutisapp.com/download/windows",
+    downloadLabel: "Pobierz .exe",
   },
   {
-    id: 'macos',
-    name: 'macOS',
-    description: 'Uniwersalny pakiet DMG dla Apple Silicon i Intel',
+    id: "macos",
+    name: "macOS",
+    description: "Uniwersalny pakiet DMG dla Apple Silicon i Intel",
     available: true,
     image: {
-      src: '/platforms/apple.svg',
-      alt: 'Logo Apple',
+      src: "/platforms/apple.svg",
+      alt: "Logo Apple",
       width: 64,
       height: 64,
     },
-    downloadUrl: 'https://dash.acutisapp.com/download/macos',
-    downloadLabel: 'Pobierz .dmg',
+    downloadUrl: "https://dash.acutisapp.com/download/macos",
+    downloadLabel: "Pobierz .dmg",
   },
   {
-    id: 'linux',
-    name: 'Linux',
-    description: 'Pakiety AppImage oraz instrukcja instalacji (Ubuntu, Fedora)',
+    id: "web",
+    name: "Web",
+    description: "Aplikacja dostępna w przeglądarce – zawsze aktualna",
     available: true,
     image: {
-      src: '/platforms/linux.svg',
-      alt: 'Logo Linux Tux',
+      src: "/platforms/web.jpg",
+      alt: "Ikona aplikacji webowej",
       width: 64,
       height: 64,
     },
-    downloadUrl: 'https://dash.acutisapp.com/download/linux',
-    downloadLabel: 'Pobierz AppImage',
+    downloadUrl: "https://dash.acutisapp.com",
+    downloadLabel: "Uruchom aplikację",
   },
   {
-    id: 'web',
-    name: 'Web',
-    description: 'Aplikacja dostępna w przeglądarce – zawsze aktualna',
-    available: true,
-    image: {
-      src: '/globe.svg',
-      alt: 'Ikona globu symbolizująca aplikację webową',
-      width: 64,
-      height: 64,
-    },
-    downloadUrl: 'https://dash.acutisapp.com',
-    downloadLabel: 'Uruchom aplikację',
-  },
-  {
-    id: 'ios',
-    name: 'iOS',
-    description: 'Aplikacja mobilna dla iPhone i iPad (TestFlight w przygotowaniu)',
+    id: "ios",
+    name: "iOS",
+    description: "Aplikacja mobilna dla iPhone i iPad (TestFlight w przygotowaniu)",
     available: false,
-    comingSoonLabel: 'Q2 2025',
+    comingSoonLabel: "Q2 2025",
     image: {
-      src: '/platforms/apple.svg',
-      alt: 'Logo Apple',
+      src: "/platforms/apple.svg",
+      alt: "Logo Apple",
       width: 64,
       height: 64,
     },
   },
   {
-    id: 'android',
-    name: 'Android',
-    description: 'Aplikacja mobilna dla Android (wersja beta w przygotowaniu)',
+    id: "android",
+    name: "Android",
+    description: "Aplikacja mobilna dla Android (wersja beta w przygotowaniu)",
     available: false,
-    comingSoonLabel: 'Q2 2025',
+    comingSoonLabel: "Q2 2025",
     image: {
-      src: '/platforms/android.svg',
-      alt: 'Logo Android',
+      src: "/platforms/android.svg",
+      alt: "Logo Android",
       width: 64,
       height: 64,
     },
   },
-];
+]
