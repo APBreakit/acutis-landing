@@ -187,11 +187,6 @@ export default function Home() {
       icon: "💻",
     },
     {
-      label: "Changelog",
-      href: "#changelog",
-      icon: "📋",
-    },
-    {
       label: "FAQ",
       href: "#faq",
       icon: "❓",
@@ -874,240 +869,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Changelog Section */}
-      <section id="changelog" className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FEFAF6] mb-3 sm:mb-4 px-4">
-            Historia rozwoju
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-[#EADBC8] px-4">
-            Nieustannie rozwijamy naszą aplikacje słuchając naszych użytkowników.
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <div
-              className="absolute left-4 sm:left-8 top-0 bottom-0 w-1 rounded-full"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(218, 192, 163, 0.8) 0%, rgba(218, 192, 163, 0.4) 50%, rgba(218, 192, 163, 0.1) 100%)",
-                boxShadow: "0 0 20px rgba(218, 192, 163, 0.3), 0 0 40px rgba(218, 192, 163, 0.1)",
-              }}
-            />
-
-            {/* Beta */}
-            <div className="relative mb-8 sm:mb-12 ml-12 sm:ml-20">
-              <div
-                className="absolute -left-[36px] sm:-left-[52px] top-2 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center animate-pulse"
-                style={{
-                  background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)",
-                  boxShadow:
-                    "0 0 0 4px rgba(218, 192, 163, 0.2), 0 0 20px rgba(218, 192, 163, 0.6), 0 0 40px rgba(218, 192, 163, 0.3)",
-                }}
-              >
-                <span className="text-lg sm:text-2xl">🚀</span>
-              </div>
-
-              <div
-                className="backdrop-blur-xl rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl group"
-                style={{
-                  background: "linear-gradient(135deg, rgba(218, 192, 163, 0.25) 0%, rgba(234, 219, 200, 0.15) 100%)",
-                  border: "2px solid rgba(218, 192, 163, 0.5)",
-                  boxShadow: "0 8px 32px rgba(10, 26, 51, 0.3), 0 0 60px rgba(218, 192, 163, 0.1)",
-                }}
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-2">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#FEFAF6] group-hover:text-[#DAC0A3] transition-colors">
-                    Beta Testing
-                  </h3>
-                  <span className="px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold bg-green-500/30 text-green-300 border-2 border-green-400/50 self-start shadow-lg">
-                    ✓ Aktualna wersja
-                  </span>
-                </div>
-                <p className="text-[#EADBC8] text-sm sm:text-base mb-4 sm:mb-6 font-medium">30 stycznia 2025</p>
-                <div className="space-y-3">
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      🎉
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Otwarcie programu Beta Testing dla wybranych parafii
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      ✨
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Pełna funkcjonalność sakramentów i intencji mszalnych
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      📄
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      System generowania dokumentów PDF w stylu Classic
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      🔄
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Synchronizacja danych między urządzeniami
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      🎨
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Nowy interfejs użytkownika Material Design 3
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Alpha */}
-            <div className="relative mb-8 sm:mb-12 ml-12 sm:ml-20">
-              <div
-                className="absolute -left-[36px] sm:-left-[52px] top-2 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center"
-                style={{
-                  background: "rgba(218, 192, 163, 0.2)",
-                  border: "3px solid rgba(218, 192, 163, 0.4)",
-                  boxShadow: "0 0 0 4px rgba(218, 192, 163, 0.1), 0 0 15px rgba(218, 192, 163, 0.2)",
-                }}
-              >
-                <span className="text-lg sm:text-2xl">🔧</span>
-              </div>
-
-              <div
-                className="backdrop-blur-xl rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:scale-[1.02] group"
-                style={{
-                  background: "rgba(254, 250, 246, 0.06)",
-                  border: "2px solid rgba(218, 192, 163, 0.2)",
-                  boxShadow: "0 4px 20px rgba(10, 26, 51, 0.2)",
-                }}
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-2">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#EADBC8] group-hover:text-[#DAC0A3] transition-colors">
-                    Alpha Release
-                  </h3>
-                  <span className="px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border-2 border-purple-400/40 self-start">
-                    📦 Archiwalna
-                  </span>
-                </div>
-                <p className="text-[#EADBC8] text-sm sm:text-base mb-4 sm:mb-6 opacity-80 font-medium">
-                  7 września 2025
-                </p>
-                <div className="space-y-3 opacity-75">
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      🎯
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Pierwsze wdrożenie aplikacji w wersji testowej
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      ⛪
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Podstawowa rejestracja sakramentów (chrzty, bierzmowania)
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      📋
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Prosty system intencji mszalnych
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      💾
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Lokalna baza danych (offline-first)
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg sm:text-xl group-hover/item:scale-125 transition-transform">
-                      🧪
-                    </span>
-                    <p className="text-[#EADBC8] text-sm sm:text-base leading-relaxed">
-                      Testowanie architektury i podstawowych funkcji
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Roadmap */}
-            <div className="relative ml-12 sm:ml-20">
-              <div
-                className="absolute -left-[36px] sm:-left-[52px] top-2 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center"
-                style={{
-                  background: "rgba(254, 250, 246, 0.08)",
-                  border: "3px dashed rgba(218, 192, 163, 0.4)",
-                  boxShadow: "0 0 0 4px rgba(218, 192, 163, 0.05)",
-                }}
-              >
-                <span className="text-lg sm:text-2xl">🗓️</span>
-              </div>
-
-              <div
-                className="backdrop-blur-xl rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:scale-[1.02] group"
-                style={{
-                  background: "rgba(254, 250, 246, 0.04)",
-                  border: "2px dashed rgba(218, 192, 163, 0.3)",
-                  boxShadow: "0 4px 20px rgba(10, 26, 51, 0.15)",
-                }}
-              >
-                <h3 className="text-xl sm:text-2xl font-bold text-[#FEFAF6] mb-4 group-hover:text-[#DAC0A3] transition-colors">
-                  Co Dalej?
-                </h3>
-                <div className="space-y-3 text-sm sm:text-base">
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg group-hover/item:scale-125 transition-transform">
-                      📱
-                    </span>
-                    <p className="text-[#EADBC8] opacity-80 leading-relaxed">
-                      Aplikacje mobilne iOS i Android (Q2 2025)
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg group-hover/item:scale-125 transition-transform">
-                      🎨
-                    </span>
-                    <p className="text-[#EADBC8] opacity-80 leading-relaxed">
-                      Dodatkowe style dokumentów PDF (Modern, Minimalist)
-                    </p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg group-hover/item:scale-125 transition-transform">
-                      🤝
-                    </span>
-                    <p className="text-[#EADBC8] opacity-80 leading-relaxed">Integracje z zewnętrznymi systemami</p>
-                  </div>
-                  <div className="flex items-start group/item">
-                    <span className="text-[#DAC0A3] mr-3 text-lg group-hover/item:scale-125 transition-transform">
-                      🏠
-                    </span>
-                    <p className="text-[#EADBC8] opacity-80 leading-relaxed">Moduł Kolędy i wizyt duszpasterskich</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section id="faq" className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
@@ -1533,7 +1294,7 @@ export default function Home() {
 
           {/* Copyright i linki prawne */}
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#EADBC8]">
-            <p>© 2025-2025 Acutis. Wszystkie prawa zastrzeżone.</p>
+            <p>© 2025 Acutis. Wszystkie prawa zastrzeżone.</p>
             <div className="flex gap-6">
               <Link href="/regulamin" className="hover:text-[#DAC0A3] transition-colors">
                 Regulamin
@@ -1541,9 +1302,9 @@ export default function Home() {
               <Link href="/polityka-prywatnosci" className="hover:text-[#DAC0A3] transition-colors">
                 Polityka Prywatności
               </Link>
-              <a href="#" className="hover:text-[#DAC0A3] transition-colors">
+              <Link href="/rodo" className="hover:text-[#DAC0A3] transition-colors">
                 RODO
-              </a>
+              </Link>
             </div>
           </div>
         </div>
