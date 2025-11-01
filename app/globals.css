@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Removed @custom-variant dark - incompatible with Turbopack */
 
 :root {
   --background: #ffffff;
@@ -74,6 +74,7 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* Removed @theme inline block - incompatible with Turbopack */
 @theme inline {
   /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --color-background: var(--background);
@@ -120,17 +121,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   }
-  /* Added smooth scroll behavior for anchor links */
   html {
     scroll-behavior: smooth;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Liquid Glassmorphism Animations */
