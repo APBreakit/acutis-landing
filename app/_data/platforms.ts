@@ -49,7 +49,7 @@ export const platforms: PlatformInfo[] = [
     description: "Aplikacja dostępna w przeglądarce – zawsze aktualna",
     available: true,
     image: {
-      src: "/platforms/chrome-white.svg",
+      src: "/platforms/web.jpg",
       alt: "Ikona aplikacji webowej",
       width: 64,
       height: 64,
@@ -62,7 +62,7 @@ export const platforms: PlatformInfo[] = [
     name: "iOS",
     description: "Aplikacja mobilna dla iPhone i iPad (TestFlight w przygotowaniu)",
     available: false,
-    comingSoonLabel: "Q1 2026",
+    comingSoonLabel: "Q2 2025",
     image: {
       src: "/platforms/apple.svg",
       alt: "Logo Apple",
@@ -75,7 +75,7 @@ export const platforms: PlatformInfo[] = [
     name: "Android",
     description: "Aplikacja mobilna dla Android (wersja beta w przygotowaniu)",
     available: false,
-    comingSoonLabel: "Q1 2026",
+    comingSoonLabel: "Q2 2025",
     image: {
       src: "/platforms/android.svg",
       alt: "Logo Android",
