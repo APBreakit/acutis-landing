@@ -556,7 +556,7 @@ export default function Home() {
               alt="Acutis"
               width={120}
               height={40}
-              className="h-16 sm:h-20 w-auto object-contain mx-auto opacity-90"
+              className="h-16 sm:h-20 w-auto object-contain mx-auto opacity-90 rounded-xl"
             />
           </div>
 
@@ -581,14 +581,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 sm:mb-16 animate-slide-up animation-delay-400 px-0">
             <Link
               href="https://dash.acutisapp.com/register"
-              className="px-6 py-3 text-[#0A1A33] text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold sm:px-4 sm:py-4 rounded-full"
+              className="px-6 py-2 text-[#0A1A33] text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold sm:px-4 sm:py-3 rounded-full"
               style={{ background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)" }}
             >
               🚀 Rozpocznij za darmo
             </Link>
             <a
               href="#cennik"
-              className="px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-xl text-[#FEFAF6] text-base sm:text-lg transition-all duration-300 hover:scale-105 rounded-full"
+              className="px-6 sm:px-8 py-2 sm:py-3 backdrop-blur-xl text-[#FEFAF6] text-base sm:text-lg transition-all duration-300 hover:scale-105 rounded-full"
               style={{ background: "rgba(254, 250, 246, 0.1)", border: "1px solid rgba(218, 192, 163, 0.4)" }}
             >
               Zobacz cennik
