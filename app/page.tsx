@@ -910,7 +910,7 @@ export default function Home() {
             },
             {
               q: "Czy aplikacja będzie dostępna na telefony?",
-              a: "Tak! Pracujemy nad aplikacjami mobilnymi dla iOS i Android. Planowane wydanie: Q2 2025. Będą one synchronizować się z wersją desktopową.",
+              a: "Tak! Pracujemy nad aplikacjami mobilnymi dla iOS i Android. Planowane wydanie: Q2 2026. Będą one synchronizować się z wersją desktopową.",
             },
           ].map((faq, i) => (
             <details

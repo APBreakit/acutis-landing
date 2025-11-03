@@ -62,7 +62,7 @@ export const platforms: PlatformInfo[] = [
     name: "iOS",
     description: "Aplikacja mobilna dla iPhone i iPad (TestFlight w przygotowaniu)",
     available: false,
-    comingSoonLabel: "Q2 2025",
+    comingSoonLabel: "Q2 2026",
     image: {
       src: "/platforms/apple.svg",
       alt: "Logo Apple",
@@ -75,7 +75,7 @@ export const platforms: PlatformInfo[] = [
     name: "Android",
     description: "Aplikacja mobilna dla Android (wersja beta w przygotowaniu)",
     available: false,
-    comingSoonLabel: "Q2 2025",
+    comingSoonLabel: "Q2 2026",
     image: {
       src: "/platforms/android.svg",
       alt: "Logo Android",
