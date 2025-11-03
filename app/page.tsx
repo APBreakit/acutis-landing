@@ -550,6 +550,16 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-20">
         <div className="text-center max-w-5xl mx-auto">
+          <div className="mb-4 sm:mb-6 animate-fade-in">
+            <Image
+              src="/acutis-logo.png"
+              alt="Acutis"
+              width={120}
+              height={40}
+              className="h-16 sm:h-20 w-auto object-contain mx-auto opacity-90"
+            />
+          </div>
+
           <div
             className="inline-block backdrop-blur-xl rounded-2xl px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 animate-fade-in shadow-lg"
             style={{ background: "rgba(218, 192, 163, 0.15)", border: "1px solid rgba(234, 219, 200, 0.3)" }}
