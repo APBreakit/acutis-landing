@@ -49,8 +49,8 @@ export const platforms: PlatformInfo[] = [
     description: "Aplikacja dostępna w przeglądarce – zawsze aktualna",
     available: true,
     image: {
-      src: "/platforms/web.svg",
-      alt: "Ikona aplikacji webowej",
+      src: "/platforms/internet.png",
+      alt: "Ikona przeglądarki internetowej",
       width: 64,
       height: 64,
     },

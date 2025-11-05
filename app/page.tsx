@@ -257,7 +257,7 @@ export default function Home() {
               alt="Acutis Logo"
               width={160}
               height={160}
-              className="h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain rounded-xl"
             />
           </Link>
 
@@ -370,7 +370,7 @@ export default function Home() {
               alt="Acutis Logo"
               width={120}
               height={120}
-              className="h-9 w-auto object-contain"
+              className="h-9 w-auto object-contain rounded-xl"
             />
           </Link>
 
@@ -420,7 +420,7 @@ export default function Home() {
                       alt="Acutis Logo"
                       width={160}
                       height={53}
-                      className="h-12 w-auto object-contain"
+                      className="h-12 w-auto object-contain rounded-xl"
                     />
                   </div>
                 </div>
@@ -1148,45 +1148,68 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* DIECEZJE - 2 kolumny */}
+          {/* BETA TESTING - 2 kolumny */}
           <div
-            className="lg:col-span-2 backdrop-blur-xl rounded-2xl p-6 shadow-lg transition-all duration-300 hover:scale-105"
+            className="lg:col-span-2 backdrop-blur-xl rounded-2xl p-6 shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden"
             style={{ background: "rgba(254, 250, 246, 0.08)", border: "1px solid rgba(218, 192, 163, 0.25)" }}
           >
+            <div
+              className="absolute -top-3 -right-3 text-[#0A1A33] px-3 py-1.5 rounded-full text-sm font-bold shadow-lg rotate-12"
+              style={{ background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)" }}
+            >
+              1/10 testuje
+            </div>
+
             <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-[#FEFAF6] mb-2">DIECEZJE</h3>
-              <p className="text-[#EADBC8] text-xs mb-4">Dla diecezji</p>
-              <div className="text-4xl font-bold text-[#DAC0A3] mb-2">Custom</div>
-              <div className="text-[#EADBC8] text-sm">kontakt</div>
+              <h3 className="text-xl font-bold text-[#FEFAF6] mb-2">BETA TESTING</h3>
+              <p className="text-[#EADBC8] text-xs mb-4">Dla pierwszych 10 parafii</p>
+              <div className="text-4xl font-bold text-[#DAC0A3] mb-2">597 zł</div>
+              <div className="text-[#EADBC8] text-sm mb-2">rocznie na zawsze</div>
+              <div
+                className="inline-block px-3 py-1 rounded-full text-xs font-bold text-[#0A1A33] mb-2"
+                style={{ background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)" }}
+              >
+                🎁 Cena na zawsze
+              </div>
+            </div>
+            <div className="mb-4 p-3 rounded-xl" style={{ background: "rgba(218, 192, 163, 0.1)" }}>
+              <p className="text-[#EADBC8] text-xs leading-relaxed">
+                Specjalny pakiet dla pierwszych 10 parafii, które wdrożą Acutis i pomogą w testowaniu aplikacji,
+                zgłaszając na bieżąco uwagi i propozycje rozwoju.
+              </p>
+            </div>
+            <div
+              className="mb-4 p-3 rounded-xl"
+              style={{ background: "rgba(218, 192, 163, 0.15)", border: "1px solid rgba(218, 192, 163, 0.3)" }}
+            >
+              <p className="text-[#DAC0A3] text-sm font-semibold text-center">
+                ⚡ Pospiesz się, dołącz do testerów i zarezerwuj swoją cenę
+              </p>
             </div>
             <ul className="space-y-2 mb-6 text-sm">
               <li className="flex items-center text-[#EADBC8]">
                 <span className="mr-2 text-[#DAC0A3]">✓</span>
-                Nielimitowane parafie
+                Wszystkie funkcje PRO
               </li>
               <li className="flex items-center text-[#EADBC8]">
                 <span className="mr-2 text-[#DAC0A3]">✓</span>
-                Centralne zarządzanie
+                Cena 597 zł/rok na zawsze
               </li>
               <li className="flex items-center text-[#EADBC8]">
                 <span className="mr-2 text-[#DAC0A3]">✓</span>
-                Dedykowany support
+                Wpływ na rozwój aplikacji
               </li>
               <li className="flex items-center text-[#EADBC8]">
                 <span className="mr-2 text-[#DAC0A3]">✓</span>
-                Szkolenie stacjonarne
-              </li>
-              <li className="flex items-center text-[#EADBC8]">
-                <span className="mr-2 text-[#DAC0A3]">✓</span>
-                Custom integracje
+                Limitowane: tylko 10 miejsc
               </li>
             </ul>
             <Link
-              href="mailto:kontakt@acutisapp.com"
+              href="https://dash.acutisapp.com"
               className="block w-full py-2 rounded-xl text-center font-bold transition-all duration-300 hover:scale-105 text-[#FEFAF6] text-sm"
               style={{ background: "rgba(254, 250, 246, 0.1)", border: "1px solid rgba(218, 192, 163, 0.4)" }}
             >
-              Skontaktuj się
+              Testuję
             </Link>
           </div>
         </div>
@@ -1228,7 +1251,7 @@ export default function Home() {
             {/* Logo i opis */}
             <div className="md:col-span-2">
               <div
-                className="inline-block px-6 py-4 rounded-2xl mb-4"
+                className="inline-block px-4 py-3 rounded-2xl mb-4"
                 style={{
                   background: "linear-gradient(135deg, #0A1A33 0%, #102C57 100%)",
                   border: "2px solid rgba(218, 192, 163, 0.4)",
