@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["parafia", "zarządzanie", "sakramenty", "intencje mszalne", "kartoteka parafialna"],
   authors: [{ name: "Acutis" }],
   icons: {
-    icon: "/acutis-logo.png",
+    icon: "/favicon.ico",
     apple: "/acutis-logo.png",
   },
   openGraph: {

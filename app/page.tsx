@@ -833,9 +833,13 @@ export default function Home() {
                     width={platform.image.width}
                     height={platform.image.height}
                     className="mx-auto w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28"
-                    style={{
-                      filter: "brightness(2.5) contrast(1.2) saturate(0.8) invert(0.9)",
-                    }}
+                    style={
+                      platform.image.src.endsWith(".svg")
+                        ? {
+                            filter: "brightness(2.5) contrast(1.2) saturate(0.8) invert(0.9)",
+                          }
+                        : {}
+                    }
                   />
                 </div>
               </div>
