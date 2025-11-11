@@ -37,13 +37,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
-  /* Added semantic tokens for agency branding colors */
-  --brand-primary: #dac0a3;
-  --brand-secondary: #eadbc8;
-  --brand-dark: #0a1a33;
-  --brand-dark-alt: #102c57;
-  --brand-light: #fefaf6;
 }
 
 .dark {
@@ -79,13 +72,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
-
-  /* Adjusted brand colors for dark mode */
-  --brand-primary: #dac0a3;
-  --brand-secondary: #eadbc8;
-  --brand-dark: #fefaf6;
-  --brand-dark-alt: #eadbc8;
-  --brand-light: #0a1a33;
 }
 
 /* Removed @theme inline block - incompatible with Turbopack */
@@ -127,13 +113,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Added brand color utilities to Tailwind theme */
-  --color-brand-primary: var(--brand-primary);
-  --color-brand-secondary: var(--brand-secondary);
-  --color-brand-dark: var(--brand-dark);
-  --color-brand-dark-alt: var(--brand-dark-alt);
-  --color-brand-light: var(--brand-light);
 }
 
 @layer base {
@@ -146,7 +125,6 @@
   }
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
   }
 }
 
@@ -197,35 +175,6 @@
   }
 }
 
-/* Added new 3D perspective animations */
-@keyframes float3d {
-  0%,
-  100% {
-    transform: translateY(0px) translateZ(0px) rotateX(0deg);
-  }
-  50% {
-    transform: translateY(-20px) translateZ(20px) rotateX(5deg);
-  }
-}
-
-@keyframes rotate3d {
-  from {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  to {
-    transform: perspective(1000px) rotateY(360deg);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
 .animate-blob {
   animation: blob 7s infinite;
 }
@@ -259,32 +208,6 @@
 .animation-delay-600 {
   animation-delay: 0.6s;
   animation-fill-mode: backwards;
-}
-
-.animate-float3d {
-  animation: float3d 6s ease-in-out infinite;
-}
-
-.animate-rotate3d {
-  animation: rotate3d 20s linear infinite;
-}
-
-/* Added infinite carousel scroll animation */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 20s linear infinite;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
 }
 
 /* Range Slider Styles */
