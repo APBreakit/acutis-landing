@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Menu, ChevronDown, Sparkles, Users, Settings, Briefcase, Lightbulb, Phone, Rocket } from "lucide-react"
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -13,6 +14,7 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0)
   const isMobile = useIsMobile()
 
+  const [openMenu, setOpenMenu] = useState<string | null>(null)
   // State for mobile submenu expansion
   const [expandedMobileSubmenu, setExpandedMobileSubmenu] = useState<string | null>(null)
 
@@ -402,13 +404,25 @@ export default function Home() {
   ]
 
   const menuItems = [
-    // This is the second definition of menuItems, which will be used for the mobile navigation
-    { label: "Usługi", href: "#uslugi", icon: "✨" },
-    { label: "Dla Kogo", href: "#dla-kogo", icon: "👥" },
-    { label: "Technologie", href: "#technologie", icon: "⚙️" },
-    { label: "Dlaczego my", href: "#dlaczego", icon: "💡" },
-    { label: "Portfolio", href: "#portfolio", icon: "🎨" },
-    { label: "Kontakt", href: "#kontakt", icon: "📧" },
+    { label: "Usługi", href: "#uslugi", icon: Sparkles },
+    {
+      label: "Dla Kogo",
+      href: "#dla-kogo",
+      icon: Users,
+      submenu: [
+        { label: "Parafie i Kościoły", href: "/parafie" },
+        { label: "Szkoły i Uczelnie", href: "/szkoly" },
+        { label: "Przedszkola i Żłobki", href: "/przedszkola" },
+        { label: "Urzędy", href: "/urzedy" },
+        { label: "Firmy", href: "/firmy" },
+        { label: "E-commerce", href: "/ecommerce" },
+        { label: "Gabinety", href: "/medycyna" },
+        { label: "Hotele i Restauracje", href: "/gastronomia" },
+      ],
+    },
+    { label: "Technologie", href: "#technologie", icon: Settings },
+    { label: "Portfolio", href: "#portfolio", icon: Briefcase },
+    { label: "O Nas", href: "#dlaczego", icon: Lightbulb },
   ]
 
   return (
@@ -454,10 +468,11 @@ export default function Home() {
         </svg>
       </div>
 
-      {/* Navigation - Responsive with Mobile Menu */}
+      {/* Navigation - Desktop & Mobile */}
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto px-4">
+        {/* Desktop Navigation */}
         <div
-          className="hidden md:flex items-center gap-0 backdrop-blur-2xl shadow-2xl py-0.5 px-2"
+          className="hidden md:flex items-center gap-1 backdrop-blur-2xl shadow-2xl py-1 px-2"
           style={{
             background: "rgba(10, 26, 51, 0.4)",
             border: "1px solid rgba(218, 192, 163, 0.3)",
@@ -468,31 +483,31 @@ export default function Home() {
         >
           <Link
             href="/"
-            className="flex items-center rounded-3xl transition-all duration-500 hover:bg-white/5 gap-0.5 px-0.5 py-0.5 opacity-100"
+            className="flex items-center rounded-3xl transition-all duration-500 hover:bg-white/5 px-2 py-1"
           >
             <Image
               src="/acutis-logo.png"
-              alt="Acutis.Agency Logo"
+              alt="Acutis.Agency"
               width={160}
               height={160}
-              className="h-12 w-auto object-contain rounded-xl"
+              className="h-11 w-auto object-contain rounded-xl"
             />
           </Link>
 
-          <div className="flex items-center gap-0 mx-1">
-            {menuItems_original.map((item, i) => {
-              // Use the original menuItems here
+          <div className="flex items-center gap-0.5 mx-1">
+            {menuItems.map((item, i) => {
               const isActive = activeSection === item.href.substring(1)
+              const Icon = item.icon
               return (
                 <div
                   key={i}
                   className="relative"
-                  // onMouseEnter={() => item.submenu && setOpenMenu(item.label)} // Removed to avoid redeclaration of state and potential conflicts
-                  // onMouseLeave={() => setOpenMenu(null)} // Removed
+                  onMouseEnter={() => item.submenu && setOpenMenu(item.label)}
+                  onMouseLeave={() => setOpenMenu(null)}
                 >
                   <a
                     href={item.href}
-                    className={`flex items-center gap-1.5 py-2 text-sm rounded-3xl transition-all duration-500 px-2 ${
+                    className={`flex items-center gap-2 py-2.5 px-4 text-sm rounded-3xl transition-all duration-500 ${
                       isActive ? "text-[#0A1A33] font-semibold" : "text-[#EADBC8] hover:text-[#DAC0A3] hover:bg-white/5"
                     }`}
                     style={
@@ -503,14 +518,35 @@ export default function Home() {
                           }
                         : {}
                     }
-                    // onClick={() => setOpenMenu(null)} // Removed
+                    onClick={() => setOpenMenu(null)}
                   >
-                    <span className="text-base">{item.icon}</span>
+                    <Icon className="w-4 h-4" strokeWidth={2} />
                     {item.label}
-                    {item.submenu && <span className="text-xs opacity-60">▾</span>}
+                    {item.submenu && <ChevronDown className="w-3 h-3 opacity-60" />}
                   </a>
 
-                  {/* Dropdown with liquid morphism - Removed due to state conflicts */}
+                  {/* Desktop Submenu */}
+                  {item.submenu && openMenu === item.label && (
+                    <div
+                      className="absolute top-full mt-2 left-0 backdrop-blur-2xl rounded-2xl p-2 shadow-2xl animate-in fade-in-0 zoom-in-95"
+                      style={{
+                        background: "rgba(10, 26, 51, 0.95)",
+                        border: "1px solid rgba(218, 192, 163, 0.3)",
+                        minWidth: "280px",
+                      }}
+                    >
+                      {item.submenu.map((subitem, j) => (
+                        <Link
+                          key={j}
+                          href={subitem.href}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#EADBC8] hover:text-[#DAC0A3] hover:bg-white/5 rounded-xl transition-all duration-300 whitespace-nowrap"
+                          onClick={() => setOpenMenu(null)}
+                        >
+                          {subitem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )
             })}
@@ -519,24 +555,26 @@ export default function Home() {
           <div className="flex items-center gap-2 ml-2 pl-2 border-l border-white/10">
             <Link
               href="#kontakt"
-              className="px-4 py-2 text-sm text-[#EADBC8] hover:text-[#DAC0A3] rounded-3xl transition-all duration-500 hover:bg-white/5"
+              className="flex items-center gap-1.5 px-4 py-2.5 text-sm text-[#EADBC8] hover:text-[#DAC0A3] rounded-3xl transition-all duration-500 hover:bg-white/5"
             >
+              <Phone className="w-4 h-4" />
               Kontakt
             </Link>
             <Link
               href="#wycena"
-              className="px-4 py-2 text-sm rounded-3xl transition-all duration-500 hover:scale-105 text-[#0A1A33] font-semibold"
+              className="flex items-center gap-1.5 px-5 py-2.5 text-sm rounded-3xl transition-all duration-500 hover:scale-105 text-[#0A1A33] font-semibold"
               style={{
                 background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)",
                 boxShadow: "0 4px 16px rgba(218, 192, 163, 0.4)",
               }}
             >
+              <Rocket className="w-4 h-4" />
               Darmowa Wycena
             </Link>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Navigation */}
         <div
           className="flex md:hidden items-center justify-between backdrop-blur-2xl px-4 py-2 shadow-2xl w-full max-w-md"
           style={{
@@ -549,31 +587,20 @@ export default function Home() {
           <Link href="/" className="flex items-center gap-2 px-2 py-1 rounded-2xl">
             <Image
               src="/acutis-logo.png"
-              alt="Acutis.Agency Logo"
+              alt="Acutis.Agency"
               width={120}
               height={120}
               className="h-9 w-auto object-contain rounded-xl"
             />
           </Link>
 
-          {/* Hamburger Menu */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <button
                 className="p-2 rounded-full transition-all duration-300 hover:bg-white/5"
                 aria-label="Toggle menu"
               >
-                <svg
-                  className="w-6 h-6 text-[#EADBC8]"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+                <Menu className="w-6 h-6 text-[#EADBC8]" strokeWidth={2} />
               </button>
             </SheetTrigger>
             <SheetContent
@@ -592,7 +619,7 @@ export default function Home() {
                 >
                   <Image
                     src="/acutis-logo.png"
-                    alt="Acutis.Agency Logo"
+                    alt="Acutis.Agency"
                     width={160}
                     height={53}
                     className="h-12 w-auto object-contain rounded-xl"
@@ -602,8 +629,8 @@ export default function Home() {
                 <div className="flex-1 overflow-y-auto px-6 py-8">
                   <div className="flex flex-col gap-2">
                     {menuItems.map((item, i) => {
-                      // Use the second menuItems here for mobile
                       const isActive = activeSection === item.href.substring(1)
+                      const Icon = item.icon
                       return (
                         <div key={i}>
                           {item.submenu ? (
@@ -627,43 +654,25 @@ export default function Home() {
                                 }
                               >
                                 <span className="flex items-center gap-3 font-medium">
-                                  <span className="text-lg">{item.icon}</span>
+                                  <Icon className="w-5 h-5" strokeWidth={2} />
                                   {item.label}
                                 </span>
-                                <span
-                                  className={`text-xs transition-transform duration-300 ${expandedMobileSubmenu === item.label ? "rotate-180" : ""}`}
-                                >
-                                  ▾
-                                </span>
+                                <ChevronDown
+                                  className={`w-4 h-4 transition-transform duration-300 ${expandedMobileSubmenu === item.label ? "rotate-180" : ""}`}
+                                />
                               </button>
                               {expandedMobileSubmenu === item.label && (
                                 <div className="ml-4 mt-2 space-y-1">
-                                  {item.submenu.map((subitem, j) => {
-                                    const isSubActive = activeSection === subitem.href.substring(1)
-                                    return (
-                                      <a
-                                        key={j}
-                                        href={subitem.href}
-                                        className={`flex items-center gap-3 px-5 py-2 text-sm rounded-xl transition-all duration-500 ${
-                                          isSubActive
-                                            ? "text-[#0A1A33] font-semibold"
-                                            : "text-[#EADBC8] hover:text-[#DAC0A3] hover:bg-white/5"
-                                        }`}
-                                        style={
-                                          isSubActive
-                                            ? {
-                                                background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)",
-                                                boxShadow: "0 2px 8px rgba(218, 192, 163, 0.3)",
-                                              }
-                                            : {}
-                                        }
-                                        onClick={() => setMobileMenuOpen(false)}
-                                      >
-                                        <span className="text-lg">{subitem.icon}</span>
-                                        {subitem.label}
-                                      </a>
-                                    )
-                                  })}
+                                  {item.submenu.map((subitem, j) => (
+                                    <Link
+                                      key={j}
+                                      href={subitem.href}
+                                      className="flex items-center gap-3 px-5 py-2.5 text-sm rounded-xl transition-all duration-500 text-[#EADBC8] hover:text-[#DAC0A3] hover:bg-white/5"
+                                      onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                      {subitem.label}
+                                    </Link>
+                                  ))}
                                 </div>
                               )}
                             </div>
@@ -685,7 +694,7 @@ export default function Home() {
                               }
                               onClick={() => setMobileMenuOpen(false)}
                             >
-                              <span className="text-lg">{item.icon}</span>
+                              <Icon className="w-5 h-5" strokeWidth={2} />
                               {item.label}
                             </a>
                           )}
@@ -695,24 +704,25 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Mobile CTA Buttons - Fixed at bottom */}
                 <div className="flex flex-col gap-3 p-6 border-t" style={{ borderColor: "rgba(218, 192, 163, 0.2)" }}>
                   <Link
                     href="#kontakt"
-                    className="px-6 py-3 text-center text-[#EADBC8] hover:text-[#DAC0A3] rounded-2xl transition-all duration-500 hover:bg-white/5 font-medium"
+                    className="flex items-center justify-center gap-2 px-6 py-3 text-center text-[#EADBC8] hover:text-[#DAC0A3] rounded-2xl transition-all duration-500 hover:bg-white/5 font-medium"
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    <Phone className="w-4 h-4" />
                     Kontakt
                   </Link>
                   <Link
                     href="#wycena"
-                    className="px-6 py-3 text-center rounded-2xl transition-all duration-500 hover:scale-105 text-[#0A1A33] font-semibold"
+                    className="flex items-center justify-center gap-2 px-6 py-3 text-center rounded-2xl transition-all duration-500 hover:scale-105 text-[#0A1A33] font-semibold"
                     style={{
                       background: "linear-gradient(135deg, #DAC0A3 0%, #EADBC8 100%)",
                       boxShadow: "0 4px 16px rgba(218, 192, 163, 0.4)",
                     }}
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    <Rocket className="w-5 h-5" />
                     Darmowa Wycena
                   </Link>
                 </div>
