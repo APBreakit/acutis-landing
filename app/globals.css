@@ -125,6 +125,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
   }
 }
 
@@ -175,6 +176,35 @@
   }
 }
 
+/* Added new 3D perspective animations */
+@keyframes float3d {
+  0%,
+  100% {
+    transform: translateY(0px) translateZ(0px) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-20px) translateZ(20px) rotateX(5deg);
+  }
+}
+
+@keyframes rotate3d {
+  from {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
 .animate-blob {
   animation: blob 7s infinite;
 }
@@ -208,6 +238,32 @@
 .animation-delay-600 {
   animation-delay: 0.6s;
   animation-fill-mode: backwards;
+}
+
+.animate-float3d {
+  animation: float3d 6s ease-in-out infinite;
+}
+
+.animate-rotate3d {
+  animation: rotate3d 20s linear infinite;
+}
+
+/* Added infinite carousel scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
 }
 
 /* Range Slider Styles */

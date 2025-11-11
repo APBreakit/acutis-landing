@@ -14,25 +14,70 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Acutis - Nowoczesne Zarządzanie Parafią",
-  description: "Kompleksowy system do zarządzania parafią. Kartoteka, sakramenty, intencje mszalne i wiele więcej.",
-  keywords: ["parafia", "zarządzanie", "sakramenty", "intencje mszalne", "kartoteka parafialna"],
-  authors: [{ name: "Acutis" }],
+  metadataBase: new URL("https://acutis.agency"),
+  title: {
+    default: "Acutis.Agency - Software House | Strony WWW, AI, Digitalizacja",
+    template: "%s | Acutis.Agency",
+  },
+  description:
+    "Profesjonalny software house specjalizujący się w tworzeniu stron internetowych, rozwiązaniach AI, digitalizacji procesów i wsparciu IT dla instytucji, firm i organizacji. Parafie, szkoły, przedszkola, urzędy, gabinety medyczne.",
+  keywords: [
+    "software house",
+    "strony internetowe",
+    "strony dla parafii",
+    "strony dla szkół",
+    "strony dla przedszkoli",
+    "strony dla urzędów",
+    "strony dla firm",
+    "sklepy internetowe",
+    "strony dla gabinetów",
+    "strony dla restauracji",
+    "AI",
+    "sztuczna inteligencja",
+    "digitalizacja",
+    "digitalizacja archiwów",
+    "wsparcie IT",
+    "CRM",
+    "ERP",
+    "marketing cyfrowy",
+    "SEO",
+    "Next.js",
+    "React",
+  ],
+  authors: [{ name: "Acutis.Agency" }],
+  creator: "Acutis.Agency",
+  publisher: "Acutis.Agency",
   icons: {
     icon: "/favicon.ico",
     apple: "/acutis-logo.png",
   },
   openGraph: {
-    title: "Acutis - Nowoczesne Zarządzanie Parafią",
-    description: "Kompleksowy system do zarządzania parafią. Kartoteka, sakramenty, intencje mszalne i wiele więcej.",
     type: "website",
     locale: "pl_PL",
-    siteName: "Acutis",
+    url: "https://acutis.agency",
+    title: "Acutis.Agency - Software House | Strony WWW, AI, Digitalizacja",
+    description:
+      "Profesjonalny software house specjalizujący się w tworzeniu stron internetowych, rozwiązaniach AI i digitalizacji procesów dla parafii, szkół, przedszkoli, urzędów i firm.",
+    siteName: "Acutis.Agency",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Acutis - Nowoczesne Zarządzanie Parafią",
-    description: "Kompleksowy system do zarządzania parafią. Kartoteka, sakramenty, intencje mszalne i wiele więcej.",
+    title: "Acutis.Agency - Software House | Strony WWW, AI, Digitalizacja",
+    description: "Strony WWW, AI, digitalizacja dla instytucji i firm. Parafie, szkoły, urzędy, gabinety, restauracje.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://acutis.agency",
   },
     generator: 'v0.app'
 }
