@@ -37,6 +37,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Added semantic tokens for agency branding colors */
+  --brand-primary: #dac0a3;
+  --brand-secondary: #eadbc8;
+  --brand-dark: #0a1a33;
+  --brand-dark-alt: #102c57;
+  --brand-light: #fefaf6;
 }
 
 .dark {
@@ -72,6 +79,13 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* Adjusted brand colors for dark mode */
+  --brand-primary: #dac0a3;
+  --brand-secondary: #eadbc8;
+  --brand-dark: #fefaf6;
+  --brand-dark-alt: #eadbc8;
+  --brand-light: #0a1a33;
 }
 
 /* Removed @theme inline block - incompatible with Turbopack */
@@ -113,6 +127,13 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added brand color utilities to Tailwind theme */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-dark-alt: var(--brand-dark-alt);
+  --color-brand-light: var(--brand-light);
 }
 
 @layer base {
